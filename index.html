@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIZAN · IASTAM 6.0 · Team INTERSTELLAR</title>
+<meta name="description" content="MIZAN: measure-first adaptive inference for energy-constrained satellite payloads. Poster, paper and mission-twin demo from team INTERSTELLAR, SUP'COM.">
+<meta property="og:title" content="MIZAN: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads">
+<meta property="og:description" content="Poster, paper and demo video. Team INTERSTELLAR, SUP'COM, IASTAM 6.0 Track 1, Problem 2.">
+<meta property="og:image" content="https://ahmed-hedhili-se.github.io/mizan-iastam/assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B3A32">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B3A32'/%3E%3Cpath d='M14 40h36M32 16v24M20 26l-6 14h12zM44 26l-6 14h12z' stroke='%239BD35A' stroke-width='4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#17211F; --mute:#4F5A56; --line:#D9DDD6; --bg:#F7F8F4; --card:#FFFFFF;
+  --deep:#0B3A32; --deep2:#0F4A40; --lime:#9BD35A; --limebg:#DDF3C4;
+  --blue:#1F6FB2; --red:#C8363F; --amber:#B7791F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(11,58,50,.96);backdrop-filter:blur(6px)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
+nav .brand{color:#fff;font-weight:800;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:10px}
+nav .brand span{color:var(--lime)}
+nav .links{margin-left:auto;display:flex;gap:18px}
+nav .links a{color:#D5E6DF;text-decoration:none;font-size:14px;font-weight:600}
+nav .links a:hover{color:#fff}
+@media (max-width:640px){nav .links{gap:12px} nav .links a{font-size:13px} nav .links .opt{display:none} nav .bt{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#1B6B5A 0,transparent 60%),linear-gradient(180deg,var(--deep),#082C26);color:#fff;padding:72px 0 64px}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(155,211,90,.45);border-radius:999px;padding:5px 12px}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.08;margin:18px 0 14px;letter-spacing:-.01em;max-width:900px}
+.hero h1 b{color:var(--lime)}
+.hero .lead{font-size:clamp(17px,2.1vw,21px);color:#D5E6DF;max-width:780px;margin:0 0 22px}
+.authors{font-size:15px;color:#C3D8D0;margin-bottom:30px}
+.authors strong{color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .12s ease,background .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--lime);color:var(--deep)}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.14)}
+.btn.dark{background:var(--deep);color:#fff}
+.btn.line{background:#fff;color:var(--deep);border:1px solid var(--line)}
+.btn svg{width:18px;height:18px}
+
+/* sections */
+section{padding:64px 0}
+section+section{border-top:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.eyebrow i{display:inline-block;width:22px;height:3px;background:var(--lime);border-radius:2px}
+h2{font-size:clamp(24px,3.2vw,34px);line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+.sub{color:var(--mute);max-width:760px;margin:0 0 28px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.kpi .n{font-size:36px;font-weight:800;color:var(--deep);line-height:1.05;letter-spacing:-.02em}
+.kpi .t{font-size:14.5px;color:var(--ink);margin:8px 0 12px;line-height:1.45}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 8px;border-radius:5px;text-transform:uppercase}
+.tag.m{background:#E3F0FA;color:var(--blue)}
+.tag.e{background:#FBF0DC;color:var(--amber)}
+.tag.s{background:#ECEEEA;color:var(--mute)}
+.finding{margin-top:22px;background:var(--deep);color:#fff;border-radius:14px;padding:22px 24px;font-size:clamp(17px,2vw,20px);line-height:1.45}
+.finding b{color:var(--lime)}
+
+/* video */
+.video{border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(11,58,50,.18)}
+.video video{width:100%;aspect-ratio:16/9}
+.note{font-size:14px;color:var(--mute);margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
+/* poster + paper */
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.frame{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 10px 30px rgba(23,33,31,.08)}
+.frame img{border-radius:6px;width:100%}
+.frame a{display:block;cursor:zoom-in}
+.side h3{font-size:20px;margin:0 0 8px}
+.side p{color:var(--mute);margin:0 0 16px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+ul.clean{list-style:none;padding:0;margin:0 0 18px}
+ul.clean li{padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px}
+ul.clean li:before{content:"";position:absolute;left:4px;top:15px;width:10px;height:10px;border-radius:2px;background:var(--lime);border:1.5px solid var(--deep)}
+.abstract{background:#fff;border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:10px;padding:18px 20px;font-size:15px;color:var(--ink);line-height:1.65}
+.paperthumb{width:100%;max-width:360px}
+@media (max-width:860px){.paperthumb{max-width:100%}}
+
+/* architecture */
+.arch{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.levers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media (max-width:700px){.levers{grid-template-columns:1fr}}
+.lever{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.lever b{display:block;color:var(--deep);font-size:16px;margin-bottom:4px}
+.lever span{font-size:14px;color:var(--mute)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.team{grid-template-columns:1fr}}
+.person{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:center}
+.avatar{flex:none;width:48px;height:48px;border-radius:50%;background:var(--limebg);color:var(--deep);display:grid;place-items:center;font-weight:800}
+.person b{display:block}
+.person a{font-size:14px;text-decoration:none;word-break:break-all}
+
+footer{background:var(--deep);color:#C3D8D0;padding:30px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer b{color:#fff}
+
+/* lightbox */
+#lb{position:fixed;inset:0;background:rgba(5,20,17,.94);display:none;z-index:50;overflow:auto;cursor:zoom-out}
+#lb.on{display:block}
+#lb img{margin:20px auto;width:min(1400px,96vw);max-width:none}
+#lb .x{position:fixed;top:14px;right:18px;color:#fff;font-size:30px;line-height:1;background:none;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">MIZAN<span class="bt"> <span>·</span> IASTAM 6.0</span></a>
+    <div class="links">
+      <a href="#demo">Demo</a>
+      <a href="#poster">Poster</a>
+      <a href="#paper">Paper</a>
+      <a class="opt" href="#method">Method</a>
+      <a class="opt" href="#team">Team</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">IASTAM 6.0 · Track 1 · Problem 2: AI inference under energy constraints</span>
+    <h1><b>MIZAN</b>: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads</h1>
+    <p class="lead">A satellite that runs AI onboard must decide, frame by frame, how much of a small and shifting energy, memory and time budget each inference deserves. MIZAN makes that decision from costs measured on the flight board itself, and keeps correcting them while it runs.</p>
+    <div class="authors"><strong>Ahmed Hedhili, Salem Essid, Ahmed Mnasri</strong> · Team INTERSTELLAR · SUP'COM, University of Carthage, Tunisia</div>
+    <div class="cta">
+      <a class="btn primary" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch the demo</a>
+      <a class="btn ghost" href="#poster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>View the poster</a>
+      <a class="btn ghost" href="assets/mizan-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Read the paper</a>
+    </div>
+  </div>
+</header>
+
+<section id="results">
+  <div class="wrap">
+    <div class="eyebrow"><i></i>Key results</div>
+    <h2>What we found</h2>
+    <p class="sub">Every number carries its evidence status: measured on hardware, estimated from declared constants, or simulated.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">52–57 %</div><div class="t">less energy per inference from adapting the model on saturated A40, L4 and T4 GPUs; nothing measurable at 10 frames/s</div><span class="tag m">Measured</span></div>
+      <div class="kpi"><div class="n">6.5×</div><div class="t">how optimistic a laptop-profiled cost menu is on the Raspberry Pi 4B payload, floor to floor</div><span class="tag m">Measured</span></div>
+      <div class="kpi"><div class="n">−49 %</div><div class="t">missed deadlines once MIZAN corrects the menu on the board (p = 0.0065, synthetic frames)</div><span class="tag m">Measured</span></div>
+      <div class="kpi"><div class="n">0.2–3.4 %</div><div class="t">share of a paced frame's energy that goes to inference on the Pi, across a deliberately wide range of inputs</div><span class="tag e">Estimated</span></div>
+    </div>
+    <div class="finding"><b>Main finding.</b> On a duty-cycled payload, adapting the model buys deadline safety, not energy, and only with costs measured on the real board.</div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="eyebrow"><i></i>Demo</div>
+    <h2>Mission twin: one orbit and a third, 1,530 decisions</h2>
+    <p class="sub">A simulated 3U CubeSat with a stuck solar wing flies a 500 km sun-synchronous orbit over Tunis. Every 5 s the repository's own MIZAN controller decides what to run, closed loop: battery and temperature respond to its choices.</p>
+    <div class="video">
+      <video controls preload="metadata" playsinline poster="assets/video-cover.jpg">
+        <source src="assets/mizan-demo.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="assets/mizan-demo.mp4">Download it</a>.
+      </video>
+    </div>
+    <div class="chips">
+      <span class="tag s">Orbit computed</span>
+      <span class="tag s">Board latency modelled from measured ratios</span>
+      <span class="tag s">Energy simulated</span>
+      <span class="tag s">Controller: the repository's own code</span>
+    </div>
+    <p class="note">MIZAN missed 12 deadlines against 64 for the same stack without cost feedback, for 0.6 points of expected accuracy. This is a simulation, not flight data.</p>
+  </div>
+</section>
+
+<section id="poster">
+  <div class="wrap two">
+    <div class="frame"><a href="#" id="openPoster" aria-label="Open the poster full size"><img src="assets/poster.jpg" alt="MIZAN A2 poster" width="1820" height="2573"></a></div>
+    <div class="side">
+      <div class="eyebrow"><i></i>Poster</div>
+      <h2>The A2 poster</h2>
+      <p>Presented at the IASTAM 6.0 poster session. Tap the poster to zoom, or open the print PDF.</p>
+      <ul class="clean">
+        <li>Context and problem: the three levers (model, frequency, quality)</li>
+        <li>Related work and added value</li>
+        <li>Architecture: priced Pareto policy with a veto-only safety filter</li>
+        <li>Testbed: Raspberry Pi 4B with an oscilloscope energy probe</li>
+        <li>Results against the five indicators, and the roadmap</li>
+      </ul>
+      <div class="actions">
+        <a class="btn dark" href="assets/mizan-poster.pdf" target="_blank" rel="noopener">Open poster PDF</a>
+        <a class="btn line" href="assets/mizan-poster.pdf" download>Download</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paper">
+  <div class="wrap two">
+    <div class="side">
+      <div class="eyebrow"><i></i>Paper</div>
+      <h2>The paper</h2>
+      <p>15 pages, IEEE format.</p>
+      <div class="abstract"><b>Abstract.</b> We present MIZAN (Arabic for <i>balance</i>), a measure-first adaptive inference system for energy-constrained payloads, and use it to test the three levers such a system has: which model to run, how often to run it, and how much detail to process. MIZAN pairs a calibrated early-exit network at two resolutions with a controller whose safety filter can veto a configuration but never choose one, and which prices energy in closed form from a profiled cost menu, corrected online. Adapting the model saves 52–57 % of per-inference energy on three data-centre accelerators while saturated, and nothing measurable at ten frames per second, because the platform's fixed draw dominates a paced frame. A cost menu profiled on a laptop is 6.5× optimistic on our Raspberry Pi 4B payload. Correcting that menu online cuts mean latency by 31 % and missed deadlines by 49 % on the board. Adaptive inference onboard must measure the platform it runs on, and keep measuring it.</div>
+      <div class="actions" style="margin-top:18px">
+        <a class="btn dark" href="assets/mizan-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+        <a class="btn line" href="assets/mizan-paper.pdf" download>Download</a>
+      </div>
+    </div>
+    <a class="frame paperthumb" href="assets/mizan-paper.pdf" target="_blank" rel="noopener" style="justify-self:center"><img src="assets/paper-p1.jpg" alt="First page of the MIZAN paper" width="510" height="660"></a>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="eyebrow"><i></i>Method</div>
+    <h2>How MIZAN decides</h2>
+    <p class="sub">Every frame, the controller reads the satellite's state, proposes the most valuable option it can afford, and lets a safety filter refuse anything that would break a deadline, the battery or the heat limit. What each run really cost is fed back into the menu.</p>
+    <div class="arch">
+<svg viewBox="0 0 520 250" width="100%" font-family="Inter, Arial, sans-serif" role="img" aria-label="MIZAN architecture">
+  <defs>
+    <marker id="ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#17211F"/></marker>
+    <marker id="ahg" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2E8B57"/></marker>
+  </defs>
+  <rect x="96" y="6" width="120" height="44" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
+  <text x="156" y="23" font-size="11" font-weight="700" text-anchor="middle" fill="#17211F">Menu</text>
+  <text x="156" y="38" font-size="8.8" text-anchor="middle" fill="#4F5A56">accuracy · latency · memory</text>
+  <rect x="262" y="6" width="168" height="44" rx="6" fill="#E6F4EC" stroke="#2E8B57" stroke-width="1.4"/>
+  <text x="346" y="23" font-size="11" font-weight="700" text-anchor="middle" fill="#2E8B57">Cost feedback</text>
+  <text x="346" y="38" font-size="8.8" text-anchor="middle" fill="#4F5A56">conformal latency bound, 5 % miss</text>
+  <line x1="216" y1="28" x2="258" y2="28" stroke="#17211F" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="4" y="90" width="84" height="92" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
+  <text x="46" y="107" font-size="10.5" font-weight="700" text-anchor="middle" fill="#17211F">Environment</text>
+  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="46" y="123">battery · heat</text><text x="46" y="136">orbit · eclipse</text><text x="46" y="149">deadline</text><text x="46" y="162">memory</text><text x="46" y="175">frame value</text></g>
+  <rect x="112" y="72" width="168" height="132" rx="8" fill="#EAF2FB" stroke="#1F6FB2" stroke-width="1.6"/>
+  <text x="122" y="88" font-size="11" font-weight="700" fill="#1F6FB2">Controller</text>
+  <rect x="120" y="94" width="152" height="104" rx="5" fill="#fff" stroke="#B9C5C0"/>
+  <text x="196" y="108" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Survival mode</text>
+  <rect x="128" y="114" width="136" height="78" rx="5" fill="#F7F8F6" stroke="#B9C5C0"/>
+  <text x="196" y="127" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Hysteresis</text>
+  <rect x="136" y="133" width="120" height="53" rx="5" fill="#fff" stroke="#B9C5C0"/>
+  <text x="196" y="147" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Priced Pareto policy</text>
+  <text x="196" y="161" font-size="8.6" text-anchor="middle" fill="#4F5A56">max value × quality − λ·energy</text>
+  <text x="196" y="175" font-size="8.6" text-anchor="middle" fill="#4F5A56">λ in closed form, onboard</text>
+  <rect x="314" y="86" width="86" height="104" rx="6" fill="#FCEDEE" stroke="#C8363F" stroke-width="1.5"/>
+  <text x="357" y="104" font-size="10.5" font-weight="700" text-anchor="middle" fill="#C8363F">Safety filter</text>
+  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="357" y="122">veto only,</text><text x="357" y="134">never chooses</text><text x="357" y="152">p95 + margin</text><text x="357" y="164">≤ deadline</text><text x="357" y="178">battery · heat</text></g>
+  <rect x="432" y="96" width="84" height="84" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
+  <text x="474" y="114" font-size="10.5" font-weight="700" text-anchor="middle" fill="#17211F">Executor</text>
+  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="474" y="132">early-exit CNN</text><text x="474" y="145">on the Pi 4B</text><text x="474" y="162">or SKIP</text></g>
+  <line x1="88" y1="136" x2="108" y2="136" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
+  <text x="98" y="130" font-size="8.4" text-anchor="middle" fill="#4F5A56">state</text>
+  <line x1="280" y1="138" x2="310" y2="138" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
+  <text x="296" y="132" font-size="8.4" text-anchor="middle" fill="#4F5A56">propose</text>
+  <line x1="400" y1="138" x2="428" y2="138" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
+  <text x="414" y="132" font-size="8.4" text-anchor="middle" fill="#4F5A56">run</text>
+  <path d="M474,96 V28 H434" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
+  <text x="478" y="62" font-size="8.4" fill="#2E8B57">observed</text><text x="478" y="73" font-size="8.4" fill="#2E8B57">latency</text>
+  <path d="M300,50 V62 H220 V68" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
+  <path d="M370,50 V82" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
+  <text x="300" y="76" font-size="8.4" fill="#2E8B57">corrected menu</text>
+  <path d="M474,180 V228 H46 V186" fill="none" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
+  <text x="260" y="242" font-size="8.6" text-anchor="middle" fill="#4F5A56">each frame's energy and latency update the state</text>
+</svg>
+    </div>
+    <div class="levers">
+      <div class="lever"><b>Model</b><span>Exit depth of a MobileNetV3-Small early-exit network: stop early when confident.</span></div>
+      <div class="lever"><b>Frequency</b><span>Run or skip a frame, guided by its value: clear land beats cloud, ocean or night.</span></div>
+      <div class="lever"><b>Quality</b><span>Process the image at 48 or 64 px.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="eyebrow"><i></i>Team INTERSTELLAR</div>
+    <h2>Contact</h2>
+    <p class="sub">École Supérieure des Communications de Tunis (SUP'COM), University of Carthage, Tunisia.</p>
+    <div class="team">
+      <div class="person"><div class="avatar">AH</div><div><b>Ahmed Hedhili</b><a href="mailto:ahmed.hedhili@supcom.tn">ahmed.hedhili@supcom.tn</a></div></div>
+      <div class="person"><div class="avatar">SE</div><div><b>Salem Essid</b><a href="mailto:salem.essid@supcom.tn">salem.essid@supcom.tn</a></div></div>
+      <div class="person"><div class="avatar">AM</div><div><b>Ahmed Mnasri</b><a href="mailto:ahmed.mnasri@supcom.tn">ahmed.mnasri@supcom.tn</a></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b>MIZAN</b> (ميزان) means <i>balance</i> in Arabic: accuracy weighed against the energy and time it costs.</span>
+    <span>Team INTERSTELLAR · SUP'COM · IASTAM 6.0 · 2026</span>
+  </div>
+</footer>
+
+<div id="lb" role="dialog" aria-label="Poster full size"><button class="x" aria-label="Close">×</button><img src="assets/poster.jpg" alt="MIZAN poster, full size"></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb');
+  document.getElementById('openPoster').addEventListener('click',function(e){e.preventDefault();lb.classList.add('on');document.body.style.overflow='hidden';});
+  lb.addEventListener('click',function(){lb.classList.remove('on');document.body.style.overflow='';});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('on');document.body.style.overflow='';}});
+})();
+</script>
+</body>
+</html>
