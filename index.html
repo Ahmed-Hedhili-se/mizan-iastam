@@ -1,319 +1,502 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="js-off">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MIZAN · IASTAM 6.0 · Team INTERSTELLAR</title>
-<meta name="description" content="MIZAN: measure-first adaptive inference for energy-constrained satellite payloads. Poster, paper and mission-twin demo from team INTERSTELLAR, SUP'COM.">
-<meta property="og:title" content="MIZAN: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads">
-<meta property="og:description" content="Poster, paper and demo video. Team INTERSTELLAR, SUP'COM, IASTAM 6.0 Track 1, Problem 2.">
-<meta property="og:image" content="https://ahmed-hedhili-se.github.io/mizan-iastam/assets/og.jpg">
+<title>MIZAN · Measure-first adaptive inference for satellites · Team INTERSTELLAR</title>
+<meta name="description" content="MIZAN is onboard AI that measures its hardware, then adapts to the mission. Poster, paper, mission-twin demo and measured results from Team INTERSTELLAR, SUP'COM, for IASTAM 6.0.">
+<meta property="og:title" content="MIZAN · Every frame has a cost. Make it count.">
+<meta property="og:description" content="Measure-first adaptive inference for energy-constrained satellite payloads. Team INTERSTELLAR, SUP'COM, IASTAM 6.0.">
+<meta property="og:image" content="https://ahmed-hedhili-se.github.io/mizan-iastam/assets/img/og.jpg">
+<meta property="og:url" content="https://ahmed-hedhili-se.github.io/mizan-iastam/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0B3A32">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B3A32'/%3E%3Cpath d='M14 40h36M32 16v24M20 26l-6 14h12zM44 26l-6 14h12z' stroke='%239BD35A' stroke-width='4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
-<style>
-:root{
-  --ink:#17211F; --mute:#4F5A56; --line:#D9DDD6; --bg:#F7F8F4; --card:#FFFFFF;
-  --deep:#0B3A32; --deep2:#0F4A40; --lime:#9BD35A; --limebg:#DDF3C4;
-  --blue:#1F6FB2; --red:#C8363F; --amber:#B7791F;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:var(--blue)}
-img,video{max-width:100%;display:block}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-
-/* nav */
-nav{position:sticky;top:0;z-index:10;background:rgba(11,58,50,.96);backdrop-filter:blur(6px)}
-nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
-nav .brand{color:#fff;font-weight:800;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:10px}
-nav .brand span{color:var(--lime)}
-nav .links{margin-left:auto;display:flex;gap:18px}
-nav .links a{color:#D5E6DF;text-decoration:none;font-size:14px;font-weight:600}
-nav .links a:hover{color:#fff}
-@media (max-width:640px){nav .links{gap:12px} nav .links a{font-size:13px} nav .links .opt{display:none} nav .bt{display:none}}
-
-/* hero */
-.hero{background:radial-gradient(1200px 500px at 85% -10%,#1B6B5A 0,transparent 60%),linear-gradient(180deg,var(--deep),#082C26);color:#fff;padding:72px 0 64px}
-.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(155,211,90,.45);border-radius:999px;padding:5px 12px}
-.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.08;margin:18px 0 14px;letter-spacing:-.01em;max-width:900px}
-.hero h1 b{color:var(--lime)}
-.hero .lead{font-size:clamp(17px,2.1vw,21px);color:#D5E6DF;max-width:780px;margin:0 0 22px}
-.authors{font-size:15px;color:#C3D8D0;margin-bottom:30px}
-.authors strong{color:#fff}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .12s ease,background .12s ease}
-.btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--lime);color:var(--deep)}
-.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
-.btn.ghost:hover{background:rgba(255,255,255,.14)}
-.btn.dark{background:var(--deep);color:#fff}
-.btn.line{background:#fff;color:var(--deep);border:1px solid var(--line)}
-.btn svg{width:18px;height:18px}
-
-/* sections */
-section{padding:64px 0}
-section+section{border-top:1px solid var(--line)}
-.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.eyebrow i{display:inline-block;width:22px;height:3px;background:var(--lime);border-radius:2px}
-h2{font-size:clamp(24px,3.2vw,34px);line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
-.sub{color:var(--mute);max-width:760px;margin:0 0 28px}
-
-/* KPIs */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:480px){.kpis{grid-template-columns:1fr}}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-.kpi .n{font-size:36px;font-weight:800;color:var(--deep);line-height:1.05;letter-spacing:-.02em}
-.kpi .t{font-size:14.5px;color:var(--ink);margin:8px 0 12px;line-height:1.45}
-.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 8px;border-radius:5px;text-transform:uppercase}
-.tag.m{background:#E3F0FA;color:var(--blue)}
-.tag.e{background:#FBF0DC;color:var(--amber)}
-.tag.s{background:#ECEEEA;color:var(--mute)}
-.finding{margin-top:22px;background:var(--deep);color:#fff;border-radius:14px;padding:22px 24px;font-size:clamp(17px,2vw,20px);line-height:1.45}
-.finding b{color:var(--lime)}
-
-/* video */
-.video{border-radius:14px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(11,58,50,.18)}
-.video video{width:100%;aspect-ratio:16/9}
-.note{font-size:14px;color:var(--mute);margin-top:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-
-/* poster + paper */
-.two{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
-@media (max-width:860px){.two{grid-template-columns:1fr}}
-.frame{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 10px 30px rgba(23,33,31,.08)}
-.frame img{border-radius:6px;width:100%}
-.frame a{display:block;cursor:zoom-in}
-.side h3{font-size:20px;margin:0 0 8px}
-.side p{color:var(--mute);margin:0 0 16px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-ul.clean{list-style:none;padding:0;margin:0 0 18px}
-ul.clean li{padding:8px 0 8px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:15px}
-ul.clean li:before{content:"";position:absolute;left:4px;top:15px;width:10px;height:10px;border-radius:2px;background:var(--lime);border:1.5px solid var(--deep)}
-.abstract{background:#fff;border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:10px;padding:18px 20px;font-size:15px;color:var(--ink);line-height:1.65}
-.paperthumb{width:100%;max-width:360px}
-@media (max-width:860px){.paperthumb{max-width:100%}}
-
-/* architecture */
-.arch{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
-.levers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-@media (max-width:700px){.levers{grid-template-columns:1fr}}
-.lever{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
-.lever b{display:block;color:var(--deep);font-size:16px;margin-bottom:4px}
-.lever span{font-size:14px;color:var(--mute)}
-
-/* team */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media (max-width:760px){.team{grid-template-columns:1fr}}
-.person{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:center}
-.avatar{flex:none;width:48px;height:48px;border-radius:50%;background:var(--limebg);color:var(--deep);display:grid;place-items:center;font-weight:800}
-.person b{display:block}
-.person a{font-size:14px;text-decoration:none;word-break:break-all}
-
-footer{background:var(--deep);color:#C3D8D0;padding:30px 0;font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-footer b{color:#fff}
-
-/* lightbox */
-#lb{position:fixed;inset:0;background:rgba(5,20,17,.94);display:none;z-index:50;overflow:auto;cursor:zoom-out}
-#lb.on{display:block}
-#lb img{margin:20px auto;width:min(1400px,96vw);max-width:none}
-#lb .x{position:fixed;top:14px;right:18px;color:#fff;font-size:30px;line-height:1;background:none;border:0;cursor:pointer}
-</style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1110">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/newsreader-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script defer src="js/site.js"></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#top">MIZAN<span class="bt"> <span>·</span> IASTAM 6.0</span></a>
-    <div class="links">
+<header class="nav" id="top">
+  <div class="nav__in">
+    <a class="wordmark" href="#top" aria-label="MIZAN, back to top">
+      <svg class="wordmark__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 11h24M16 6v20M10 26h12M8 11l-4 8h8zM24 11l-4 8h8z"/></svg>
+      <span>MIZAN</span>
+    </a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="nav__toggle-bars" aria-hidden="true"></span><span class="nav__toggle-label">Menu</span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Sections">
+      <a href="#idea">Idea</a>
+      <a href="#results">Results</a>
       <a href="#demo">Demo</a>
       <a href="#poster">Poster</a>
       <a href="#paper">Paper</a>
-      <a class="opt" href="#method">Method</a>
-      <a class="opt" href="#team">Team</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="wrap">
-    <span class="kicker">IASTAM 6.0 · Track 1 · Problem 2: AI inference under energy constraints</span>
-    <h1><b>MIZAN</b>: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads</h1>
-    <p class="lead">A satellite that runs AI onboard must decide, frame by frame, how much of a small and shifting energy, memory and time budget each inference deserves. MIZAN makes that decision from costs measured on the flight board itself, and keeps correcting them while it runs.</p>
-    <div class="authors"><strong>Ahmed Hedhili, Salem Essid, Ahmed Mnasri</strong> · Team INTERSTELLAR · SUP'COM, University of Carthage, Tunisia</div>
-    <div class="cta">
-      <a class="btn primary" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch the demo</a>
-      <a class="btn ghost" href="#poster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>View the poster</a>
-      <a class="btn ghost" href="assets/mizan-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Read the paper</a>
-    </div>
+      <a href="#team">Team</a>
+    </nav>
   </div>
 </header>
 
-<section id="results">
-  <div class="wrap">
-    <div class="eyebrow"><i></i>Key results</div>
-    <h2>What we found</h2>
-    <p class="sub">Every number carries its evidence status: measured on hardware, estimated from declared constants, or simulated.</p>
-    <div class="kpis">
-      <div class="kpi"><div class="n">52–57 %</div><div class="t">less energy per inference from adapting the model on saturated A40, L4 and T4 GPUs; nothing measurable at 10 frames/s</div><span class="tag m">Measured</span></div>
-      <div class="kpi"><div class="n">6.5×</div><div class="t">how optimistic a laptop-profiled cost menu is on the Raspberry Pi 4B payload, floor to floor</div><span class="tag m">Measured</span></div>
-      <div class="kpi"><div class="n">−49 %</div><div class="t">missed deadlines once MIZAN corrects the menu on the board (p = 0.0065, synthetic frames)</div><span class="tag m">Measured</span></div>
-      <div class="kpi"><div class="n">0.2–3.4 %</div><div class="t">share of a paced frame's energy that goes to inference on the Pi, across a deliberately wide range of inputs</div><span class="tag e">Estimated</span></div>
+<main id="main">
+
+<!-- ============================================================ HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">IASTAM 6.0 · Track 1 · Problem 2 · AI inference under energy constraints</p>
+      <h1 id="hero-title" class="hero__title">Every frame has a cost. <em>Make it count.</em></h1>
+      <p class="hero__lead">Onboard AI that measures its hardware, then adapts to the mission.</p>
+      <div class="hero__actions">
+        <button class="switch" type="button" id="mizan-switch" aria-pressed="false" aria-controls="twin">
+          <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+          <span class="switch__label">Switch on MIZAN</span>
+        </button>
+        <a class="link-arrow" href="#idea">How it works</a>
+      </div>
+      <p class="hero__by">Team INTERSTELLAR · SUP'COM, University of Carthage, Tunisia</p>
     </div>
-    <div class="finding"><b>Main finding.</b> On a duty-cycled payload, adapting the model buys deadline safety, not energy, and only with costs measured on the real board.</div>
+
+    <figure class="twin" id="twin" aria-labelledby="twin-cap">
+      <div class="twin__head">
+        <span class="mono">Mission twin · Tunis ground pass</span>
+        <span class="ev ev--sim">Simulated</span>
+      </div>
+
+      <svg class="beam" viewBox="0 0 560 186" role="img" aria-labelledby="beam-t">
+        <title id="beam-t">Balance between missed deadlines and expected accuracy</title>
+        <g class="beam__stand"><path d="M280 44 L280 132"/><path d="M236 136 H324"/></g>
+        <g class="beam__arm" id="beam-arm">
+          <path class="beam__bar" d="M70 44 H490"/>
+          <circle cx="280" cy="44" r="5" class="beam__pivot"/>
+          <g class="beam__pan beam__pan--l" id="pan-l">
+            <path d="M70 44 L38 98 M70 44 L102 98"/><path class="beam__dish" d="M30 98 H110 a40 14 0 0 1 -80 0z"/>
+            <text x="70" y="134" class="beam__v beam__v--l"><tspan id="pan-l-v">64</tspan><tspan x="70" dy="1.15em" class="beam__u">missed</tspan></text>
+          </g>
+          <g class="beam__pan beam__pan--r" id="pan-r">
+            <path d="M490 44 L458 98 M490 44 L522 98"/><path class="beam__dish" d="M450 98 H530 a40 14 0 0 1 -80 0z"/>
+            <text x="490" y="134" class="beam__v beam__v--r"><tspan id="pan-r-v">90.7&nbsp;%</tspan><tspan x="490" dy="1.15em" class="beam__u">accuracy</tspan></text>
+          </g>
+        </g>
+      </svg>
+
+      <div class="twin__runs">
+        <div class="run run--off">
+          <p class="run__name">Without cost feedback</p>
+          <p class="run__num"><span>64</span><small>missed deadlines</small></p>
+          <p class="run__meta">expected accuracy 90.7&nbsp;%</p>
+          <div class="cells" data-pattern="111111011101111110111101111011111111111111111100011111111011110010111001101101110000000000000000000000000000" data-paused="80" aria-hidden="true"></div>
+        </div>
+        <div class="run run--on" id="run-on" data-state="off">
+          <p class="run__name">MIZAN, cost feedback on</p>
+          <p class="run__num"><span id="on-num">?</span><small>missed deadlines</small></p>
+          <p class="run__meta" id="on-meta">Switch on MIZAN to compare</p>
+          <div class="cells" data-pattern="111110001110001000000000000000000010000000000000000000000010000000000010000000000000000000000000000000000000" data-paused="80" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <p class="twin__trade" id="twin-trade" aria-live="polite">The trade: 52 fewer missed deadlines for <strong>0.6 points</strong> of expected accuracy (90.7&nbsp;% to 90.1&nbsp;%).</p>
+
+      <div class="legend" aria-hidden="true">
+        <span><i class="c c--ok"></i>on time</span><span><i class="c c--miss"></i>missed</span><span><i class="c c--pause"></i>paused to cool</span>
+        <span class="legend__note">1 square = 1 frame (5 s) · 108 frames over Tunis</span>
+      </div>
+
+      <figcaption id="twin-cap" class="twin__cap">
+        <strong>Recorded simulation result, not flight data.</strong> One orbit and a third, 1,530 decisions; every missed deadline in both runs falls in this 9-minute pass, when the downlink slows inference 2.4×. This control replays the recorded outcomes of the two runs; it does not execute the controller.
+        <span class="src">Source: mission-twin run, <code>experiments/mission_twin.py</code>, 8 Oct 2026.</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
-<section id="demo">
-  <div class="wrap">
-    <div class="eyebrow"><i></i>Demo</div>
-    <h2>Mission twin: one orbit and a third, 1,530 decisions</h2>
-    <p class="sub">A simulated 3U CubeSat with a stuck solar wing flies a 500 km sun-synchronous orbit over Tunis. Every 5 s the repository's own MIZAN controller decides what to run, closed loop: battery and temperature respond to its choices.</p>
-    <div class="video">
-      <video controls preload="metadata" playsinline poster="assets/video-cover.jpg">
-        <source src="assets/mizan-demo.mp4" type="video/mp4">
-        Your browser cannot play this video. <a href="assets/mizan-demo.mp4">Download it</a>.
-      </video>
+<!-- ============================================================ IDEA -->
+<section class="sec sec--paper" id="idea" aria-labelledby="idea-t">
+  <div class="sec__in">
+    <header class="sec__head">
+      <p class="sec__num mono">01 · The idea</p>
+      <h2 id="idea-t" class="sec__title">A satellite cannot trust a cost sheet written on a laptop.</h2>
+    </header>
+
+    <div class="idea">
+      <div class="idea__text prose">
+        <p class="lede">A satellite that runs AI onboard must decide, frame by frame, how much of a small and shifting energy, memory and time budget each inference deserves.</p>
+        <p>Adaptive inference systems usually choose from a <em>cost menu</em> profiled once, on a development machine. On our Raspberry Pi 4B payload that menu was about 6.5× too optimistic, so a controller that trusted it planned for deadlines it could not meet.</p>
+        <p><strong>MIZAN</strong> (ميزان, Arabic for <em>balance</em>) weighs accuracy against the energy and time it costs, using costs measured on the board it runs on, and keeps correcting them while it flies. Its safety filter can refuse a configuration but never chooses one.</p>
+      </div>
+
+      <div class="levers" aria-labelledby="levers-t">
+        <h3 id="levers-t" class="mono levers__t">Three choices per frame</h3>
+        <dl>
+          <div><dt>Model depth</dt><dd>Exit early from a MobileNetV3-Small network when it is confident; go deeper when it is not.</dd></div>
+          <div><dt>Frame frequency</dt><dd>Run or skip a frame, weighed by its value: clear land is worth more than cloud, ocean or night.</dd></div>
+          <div><dt>Input quality</dt><dd>Process the image at 48 or 64 pixels.</dd></div>
+        </dl>
+      </div>
     </div>
-    <div class="chips">
-      <span class="tag s">Orbit computed</span>
-      <span class="tag s">Board latency modelled from measured ratios</span>
-      <span class="tag s">Energy simulated</span>
-      <span class="tag s">Controller: the repository's own code</span>
+
+    <div class="loop" aria-labelledby="loop-t">
+      <div class="loop__head">
+        <h3 id="loop-t" class="loop__title">How MIZAN decides, every frame</h3>
+        <p class="loop__sub">Each step is shown with one real decision from the mission twin: decision 187, over Germany, with the Tunis link open. <span class="ev ev--sim">Simulated</span></p>
+      </div>
+      <ol class="loop__steps">
+        <li class="step">
+          <span class="step__n mono">1</span>
+          <h4>Observe state</h4>
+          <p>Battery, temperature, deadline, memory and the value of the frame.</p>
+          <p class="step__ex mono">deadline 40.0 ms · clear land, value 1.0 · 26.8 °C · 4,066 J usable</p>
+        </li>
+        <li class="step">
+          <span class="step__n mono">2</span>
+          <h4>Propose configuration</h4>
+          <p>The most valuable option the energy price allows, from the corrected menu.</p>
+          <p class="step__ex mono">early-exit 64 px: 6.2 ms × 6.29 = 39.2 ms &gt; 38.0 ms budget → exit 1 · 64 px</p>
+        </li>
+        <li class="step step--veto">
+          <span class="step__n mono">3</span>
+          <h4>Safety veto</h4>
+          <p>Refuse anything whose bound breaks the deadline, battery or heat limit. It can veto; it never chooses.</p>
+          <p class="step__ex mono">believed 11.9 ms, fits the budget · no veto</p>
+        </li>
+        <li class="step">
+          <span class="step__n mono">4</span>
+          <h4>Execute</h4>
+          <p>Run the chosen exit and resolution on the board, or skip the frame.</p>
+          <p class="step__ex mono">exit 1 at 64 px on the payload computer</p>
+        </li>
+        <li class="step">
+          <span class="step__n mono">5</span>
+          <h4>Measure actual cost</h4>
+          <p>Time what the board really took.</p>
+          <p class="step__ex mono">measured 26.8 ms · deadline 40.0 ms · on time</p>
+        </li>
+        <li class="step">
+          <span class="step__n mono">6</span>
+          <h4>Update the cost menu</h4>
+          <p>Fold measured over predicted into a conformal latency bound for the next frame.</p>
+          <p class="step__ex mono">measured ÷ menu → correction updated</p>
+        </li>
+      </ol>
+      <p class="loop__return mono" aria-hidden="true">↺ next frame, 5 s later</p>
     </div>
-    <p class="note">MIZAN missed 12 deadlines against 64 for the same stack without cost feedback, for 0.6 points of expected accuracy. This is a simulation, not flight data.</p>
   </div>
 </section>
 
-<section id="poster">
-  <div class="wrap two">
-    <div class="frame"><a href="#" id="openPoster" aria-label="Open the poster full size"><img src="assets/poster.jpg" alt="MIZAN A2 poster" width="1820" height="2573"></a></div>
-    <div class="side">
-      <div class="eyebrow"><i></i>Poster</div>
-      <h2>The A2 poster</h2>
-      <p>Presented at the IASTAM 6.0 poster session. Tap the poster to zoom, or open the print PDF.</p>
-      <ul class="clean">
-        <li>Context and problem: the three levers (model, frequency, quality)</li>
-        <li>Related work and added value</li>
-        <li>Architecture: priced Pareto policy with a veto-only safety filter</li>
-        <li>Testbed: Raspberry Pi 4B with an oscilloscope energy probe</li>
-        <li>Results against the five indicators, and the roadmap</li>
+<!-- ============================================================ RESULTS -->
+<section class="sec sec--paper sec--rule" id="results" aria-labelledby="res-t">
+  <div class="sec__in">
+    <header class="sec__head">
+      <p class="sec__num mono">02 · Results</p>
+      <h2 id="res-t" class="sec__title">On the board, measuring buys deadline safety.</h2>
+      <p class="sec__intro">Every claim carries its evidence status and its conditions. <span class="ev ev--meas">Measured</span> on hardware, <span class="ev ev--est">Estimated</span> from declared constants, <span class="ev ev--sim">Simulated</span>.</p>
+    </header>
+
+    <article class="claim claim--lead" aria-labelledby="c1-t">
+      <div class="claim__key">
+        <span class="ev ev--meas">Measured · Raspberry Pi 4B</span>
+        <h3 id="c1-t" class="claim__big">−49&nbsp;%<span>missed deadlines</span></h3>
+        <p class="claim__big claim__big--2">−31&nbsp;%<span>mean latency</span></p>
+        <p class="claim__text">After online cost correction, on the target board. The controller stopped trusting the laptop menu and spread its choices across seven options instead of one.</p>
+      </div>
+      <div class="claim__viz">
+        <div class="bars" role="table" aria-label="Cost feedback on the target board, Table VI">
+          <div class="bars__row" role="row">
+            <span class="bars__lab" role="rowheader">Deadline misses <small>of 720 frames per arm</small></span>
+            <div class="bars__pair" role="cell">
+              <div class="bar bar--off" style="--v:45/45"><span>45</span><em>feedback off</em></div>
+              <div class="bar bar--on" style="--v:23/45"><span>23</span><em>feedback on</em></div>
+              <div class="bar bar--ref" style="--v:0/45"><span>0</span><em>cheapest fixed option</em></div>
+            </div>
+          </div>
+          <div class="bars__row" role="row">
+            <span class="bars__lab" role="rowheader">Mean latency <small>ms</small></span>
+            <div class="bars__pair" role="cell">
+              <div class="bar bar--off" style="--v:26.72/26.72"><span>26.72</span><em>feedback off</em></div>
+              <div class="bar bar--on" style="--v:18.42/26.72"><span>18.42</span><em>feedback on</em></div>
+              <div class="bar bar--ref" style="--v:12.37/26.72"><span>12.37</span><em>cheapest fixed option</em></div>
+            </div>
+          </div>
+          <div class="bars__row" role="row">
+            <span class="bars__lab" role="rowheader">Expected accuracy <small>menu value, %</small></span>
+            <div class="bars__pair" role="cell">
+              <div class="bar bar--off" style="--v:90.65/90.65"><span>90.65</span><em>feedback off</em></div>
+              <div class="bar bar--on" style="--v:87.94/90.65"><span>87.94</span><em>feedback on</em></div>
+              <div class="bar bar--ref" style="--v:86.45/90.65"><span>86.45</span><em>cheapest fixed option</em></div>
+            </div>
+          </div>
+        </div>
+        <dl class="cond">
+          <div><dt>Board</dt><dd>Raspberry Pi 4B, second session, desktop running</dd></div>
+          <div><dt>Frames</dt><dd>Synthetic, 720 per arm, feedback off and on interleaved, six trials per arm</dd></div>
+          <div><dt>Statistics</dt><dd>Misses 7.5 to 3.8 per trial, p = 0.0065; latency p = 0.0011 (exact permutation test)</dd></div>
+          <div><dt>Cost</dt><dd>2.71 points of menu-ascribed accuracy</dd></div>
+          <div><dt>Limit</dt><dd>The cheapest fixed option still missed none (first session, 360 frames, not interleaved). On real images (session 4), feedback helped only at low clock: misses 15 to 12, p = 0.008.</dd></div>
+          <div><dt>Source</dt><dd>Paper, Section IV-G, Table VI</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <div class="claims">
+      <article class="claim" aria-labelledby="c2-t">
+        <span class="ev ev--meas">Measured · Raspberry Pi 4B</span>
+        <h3 id="c2-t" class="claim__mid">6.5× <span>optimistic</span></h3>
+        <p class="claim__text">A cost menu profiled on a development laptop underestimates what the payload board takes, floor to floor.</p>
+        <div class="ratio" role="img" aria-label="Laptop menu as 1 unit of time against 6.5 units on the Raspberry Pi 4B">
+          <div class="ratio__row"><span class="ratio__lab">laptop menu</span><span class="ratio__bar" style="--w:calc(100%/6.5)"></span><span class="ratio__v mono">1×</span></div>
+          <div class="ratio__row"><span class="ratio__lab">Pi 4B, measured</span><span class="ratio__bar ratio__bar--pi" style="--w:100%"></span><span class="ratio__v mono">6.5×</span></div>
+        </div>
+        <dl class="cond cond--tight">
+          <div><dt>Conditions</dt><dd>Fastest quarter (p25) against the re-measured host, 1.45 ms: 6.56× and 6.50× in two sessions; 6.60× headless with real images</dd></div>
+          <div><dt>Source</dt><dd>Paper, Section IV-F</dd></div>
+        </dl>
+      </article>
+
+      <article class="claim" aria-labelledby="c3-t">
+        <span class="ev ev--meas">Measured · data-centre GPUs, not the payload</span>
+        <h3 id="c3-t" class="claim__mid">52–57&nbsp;% <span>less energy per inference</span></h3>
+        <p class="claim__text">Adaptive routing against full depth, at 64 px, with idle draw included, while the accelerator is saturated. Paced at 10 frames/s, the saving disappears.</p>
+        <table class="gpu">
+          <caption class="sr-only">Energy per inference, full depth against adaptive, saturated</caption>
+          <thead><tr><th scope="col">GPU</th><th scope="col">Full depth</th><th scope="col">Adaptive</th><th scope="col">Saved, saturated</th><th scope="col">At 10 fps</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">A40</th><td>324.4 mJ</td><td>151.5 mJ</td><td><strong>53.3&nbsp;%</strong></td><td>not run</td></tr>
+            <tr><th scope="row">L4</th><td>157.2 mJ</td><td>67.7 mJ</td><td><strong>56.9&nbsp;%</strong></td><td>0.65&nbsp;%</td></tr>
+            <tr><th scope="row">T4</th><td>157.8 mJ</td><td>75.8 mJ</td><td><strong>52.0&nbsp;%</strong></td><td>−0.05&nbsp;%</td></tr>
+          </tbody>
+        </table>
+        <dl class="cond cond--tight">
+          <div><dt>Conditions</dt><dd>Three trials, 95&nbsp;% intervals in the paper; the 10 fps intervals contain zero. Not measured on the satellite payload.</dd></div>
+          <div><dt>Source</dt><dd>Paper, Section IV-B, Table III</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="ledger" aria-labelledby="ledger-t">
+      <div class="ledger__head">
+        <h3 id="ledger-t" class="ledger__title">Evidence ledger <span class="mono">Paper, Table II</span></h3>
+        <div class="filter" role="group" aria-label="Filter findings by evidence">
+          <button type="button" class="chip" aria-pressed="true" data-filter="all">All 8</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="meas">Measured</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="est">Estimated</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="sim">Simulated</button>
+        </div>
+      </div>
+      <div class="ledger__scroll">
+      <table class="ledger__t">
+        <thead><tr><th scope="col">#</th><th scope="col">Finding</th><th scope="col">Key number</th><th scope="col">Evidence</th><th scope="col">Section</th></tr></thead>
+        <tbody>
+          <tr data-ev="meas"><td class="mono">F1</td><td>The model lever saves energy only when the accelerator is saturated</td><td>52–57&nbsp;% saturated; indistinguishable from 0 at 10 fps</td><td><span class="ev ev--meas">Measured</span> GPU boards</td><td class="mono">IV-B</td></tr>
+          <tr data-ev="meas"><td class="mono">F2</td><td>A host-profiled menu is optimistic on the board</td><td>about 6.5× at the floor</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-F</td></tr>
+          <tr data-ev="meas"><td class="mono">F3</td><td>Cost feedback recovers deadlines on the board</td><td>−48.9&nbsp;% misses (p = 0.0065), −31.1&nbsp;% mean latency (p = 0.0011)</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-G</td></tr>
+          <tr data-ev="meas"><td class="mono">F4</td><td>The cheapest fixed option still misses fewer deadlines</td><td>0 vs 23 misses; 0 again when interleaved (session 4)</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-G</td></tr>
+          <tr data-ev="sim"><td class="mono">F5</td><td>The onboard energy price needs no hindsight where energy binds</td><td>98.4&nbsp;% of optimum; hindsight price and cheapest option 97.6&nbsp;%</td><td><span class="ev ev--sim">Simulated</span></td><td class="mono">IV-D</td></tr>
+          <tr data-ev="est"><td class="mono">F6</td><td>Inference is a few percent of a paced frame's energy on the board</td><td>0.2–3.4&nbsp;%</td><td><span class="ev ev--est">Estimated</span></td><td class="mono">IV-F</td></tr>
+          <tr data-ev="sim"><td class="mono">F7</td><td>The onboard price removes the breaches a hand-set price causes</td><td>454 (policy) and 154 (full stack) to 0</td><td><span class="ev ev--sim">Simulated</span></td><td class="mono">IV-H</td></tr>
+          <tr data-ev="meas"><td class="mono">F8</td><td>The board makes the host's decision on every frame</td><td>2,560 of 2,560 frames, real images</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-F</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="ledger__note">Why the energy lever is weak on the payload: from a published Pi 4 base draw (1,518 mW), a declared 2.0 W active increment, the 5 s frame and the slowest mean latency measured (26.95 ms), one inference is about 0.7&nbsp;% of a frame's energy, and 0.2–3.4&nbsp;% across any plausible mismatch. On a duty-cycled payload, how often to run matters more than how deep.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ DEMO -->
+<section class="sec sec--deck" id="demo" aria-labelledby="demo-t">
+  <div class="sec__in">
+    <header class="sec__head">
+      <p class="sec__num mono">03 · Demo</p>
+      <h2 id="demo-t" class="sec__title">Mission twin: one orbit and a third, 1,530 decisions.</h2>
+    </header>
+    <div class="demo">
+      <div class="demo__media">
+        <div class="player" id="player">
+          <video id="demo-video" controls playsinline preload="none" poster="assets/demo/cover.jpg" width="1600" height="900" aria-describedby="demo-desc">
+            <source src="assets/demo/mizan-mission-twin.mp4" type="video/mp4">
+            <source src="assets/demo/mizan-mission-twin.webm" type="video/webm" id="last-src">
+            <track kind="captions" src="assets/demo/captions-en.vtt" srclang="en" label="English (on-screen text)" default>
+          </video>
+          <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="assets/demo/mizan-mission-twin.mp4" download>Download the MP4</a> instead.</p>
+        </div>
+        <div class="chapters" role="group" aria-label="Jump to a moment in the video">
+          <button type="button" data-t="0"><span class="mono">0:00</span>Orbit</button>
+          <button type="button" data-t="25.2"><span class="mono">0:25</span>Downlink</button>
+          <button type="button" data-t="28.6"><span class="mono">0:29</span>One decision</button>
+          <button type="button" data-t="43.8"><span class="mono">0:44</span>Heat</button>
+          <button type="button" data-t="58.4"><span class="mono">0:58</span>Eclipse</button>
+          <button type="button" data-t="79"><span class="mono">1:19</span>Recovery</button>
+          <button type="button" data-t="84"><span class="mono">1:24</span>Results</button>
+        </div>
+        <p class="demo__dl"><a href="assets/demo/mizan-mission-twin.mp4" download>Download MP4</a> · 1:42 · 16.7 MB · no audio, captions carry the on-screen text</p>
+      </div>
+      <div class="demo__text" id="demo-desc">
+        <p>A simulated 3U CubeSat flies a 500 km sun-synchronous orbit with one solar wing stuck. During the pass over the SUP'COM ground station in Tunis, the downlink shares the payload computer and slows inference 2.4×. Then comes a 35-minute eclipse with the battery short of reserve.</p>
+        <p>The repository's own controller decides every frame twice, with and without cost feedback. Battery and temperature respond to what it runs.</p>
+        <ul class="chips" aria-label="What is real in this run">
+          <li>Orbit, eclipse, ground pass: computed</li>
+          <li>Board latency: modelled from measured ratios</li>
+          <li>Power and heat: declared</li>
+          <li>Energy: simulated, no meter</li>
+        </ul>
+        <table class="mini">
+          <caption>This run's log <span class="ev ev--sim">Simulated</span></caption>
+          <thead><tr><th scope="col">Controller</th><th scope="col">Missed</th><th scope="col">Mean latency</th><th scope="col">Exp. accuracy</th></tr></thead>
+          <tbody>
+            <tr class="is-mizan"><th scope="row">MIZAN</th><td>12</td><td>20.2 ms</td><td>90.1&nbsp;%</td></tr>
+            <tr><th scope="row">Menu-trusting</th><td>64</td><td>22.0 ms</td><td>90.7&nbsp;%</td></tr>
+            <tr><th scope="row">Static, richest</th><td>88</td><td>20.9 ms</td><td>90.7&nbsp;%</td></tr>
+            <tr><th scope="row">Static, cheapest</th><td>0</td><td>12.9 ms</td><td>86.4&nbsp;%</td></tr>
+          </tbody>
+        </table>
+        <p class="demo__note">On this narrow menu the cheapest fixed option still misses nothing, which is the paper's finding too; it never rests through heat or low battery, though. Simulation, not flight data. Source: <code>docs/mission-twin.md</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ POSTER -->
+<section class="sec sec--paper" id="poster" aria-labelledby="poster-t">
+  <div class="sec__in">
+    <header class="sec__head sec__head--row">
+      <div>
+        <p class="sec__num mono">04 · Poster</p>
+        <h2 id="poster-t" class="sec__title">The A2 poster, explorable.</h2>
+      </div>
+      <p class="sec__intro">Pick a section, zoom with the buttons, drag to pan, or use the arrow keys when the poster is focused.</p>
+    </header>
+
+    <div class="pv" id="pv">
+      <div class="pv__side">
+        <div class="pv__sections" role="group" aria-label="Poster sections">
+          <button type="button" class="pv__sec" aria-pressed="true" data-r="0,0,1,1" data-d="The whole A2 poster: eight sections in two columns, from the problem to the roadmap.">Whole poster</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.255,0.465,0.33" data-d="Context and problem, objectives and related work: the three levers, the five indicators, and how MIZAN differs from Φ-Sat-1, Kodan, early-exit work, E3C and Equinox.">Problem</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.584,0.465,0.243" data-d="Proposed approach: the four-step flow and the controller architecture, with the cost feedback loop and the veto-only safety filter.">Method</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.824,0.465,0.145" data-d="Prototype and testbed: the early-exit model and the Raspberry Pi 4B energy probe, with the charger cable as shunt and a GPIO marker read by an oscilloscope.">Testbed</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.255,0.47,0.5" data-d="Evaluation against the five indicators, the key numbers with their evidence labels, the lever regime map and the robustness chart.">Results</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.749,0.47,0.228" data-d="Conclusion, roadmap and references, with the QR code that opens this site.">Roadmap</button>
+        </div>
+        <p class="pv__desc" id="pv-desc" aria-live="polite">The whole A2 poster: eight sections in two columns, from the problem to the roadmap.</p>
+        <div class="pv__zoom" role="group" aria-label="Zoom">
+          <button type="button" data-z="out" aria-label="Zoom out">−</button>
+          <output id="pv-level" class="mono" aria-live="polite">100&nbsp;%</output>
+          <button type="button" data-z="in" aria-label="Zoom in">+</button>
+          <button type="button" data-z="reset" class="pv__reset">Reset</button>
+        </div>
+        <div class="pv__files">
+          <a class="btn btn--ink" href="assets/poster/mizan-poster.pdf" target="_blank" rel="noopener">Open poster PDF</a>
+          <a class="btn btn--line" href="assets/poster/mizan-poster.pdf" download>Download · 1.4 MB</a>
+        </div>
+      </div>
+      <div class="pv__stage" id="pv-stage" tabindex="0" role="region" aria-label="Poster viewer. Use arrow keys to pan, plus and minus to zoom.">
+        <img id="pv-img" src="assets/poster/poster-1600.jpg" data-hi="assets/poster/poster-3100.jpg" alt="The MIZAN A2 poster: header with title and authors, then sections 01 to 08 in two columns, from context and problem to references and a QR code." width="1589" height="2246" loading="lazy" decoding="async" draggable="false">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PAPER -->
+<section class="sec sec--paper sec--rule" id="paper" aria-labelledby="paper-t">
+  <div class="sec__in">
+    <header class="sec__head">
+      <p class="sec__num mono">05 · Paper</p>
+      <h2 id="paper-t" class="sec__title">MIZAN: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads</h2>
+      <p class="sec__intro">Ahmed Hedhili, Salem Essid, Ahmed Mnasri · IASTAM 6.0 Technical Challenge · 25 pages with appendices, IEEE format.</p>
+    </header>
+
+    <div class="paper">
+      <div class="paper__text prose">
+        <p class="lede">We test the three levers an adaptive inference system has on a satellite: which model to run, how often to run it, and how much detail to process.</p>
+        <p>MIZAN pairs a calibrated early-exit network at two resolutions with a controller that prices energy in closed form from a profiled cost menu, corrected online, behind a safety filter that can veto but never choose.</p>
+        <p>Three findings follow. The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, the computing board of the BUPT-1 CubeSat. Correcting it online cuts missed deadlines by 49&nbsp;% on the board, while the cheapest fixed option still misses fewer, which sets the next step.</p>
+        <div class="paper__actions">
+          <a class="btn btn--ink" href="assets/paper/mizan-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+          <a class="btn btn--line" href="assets/paper/mizan-paper.pdf" download>Download · 0.5 MB</a>
+        </div>
+
+        <div class="cite">
+          <div class="cite__head"><h3 class="mono">Cite this work</h3><button type="button" class="chip" id="cite-copy">Copy BibTeX</button></div>
+<pre id="cite-bib" tabindex="0">@misc{hedhili2026mizan,
+  title  = {{MIZAN}: Measure-First Adaptive Inference for
+            Energy-Constrained Satellite Payloads},
+  author = {Hedhili, Ahmed and Essid, Salem and Mnasri, Ahmed},
+  note   = {IASTAM 6.0 Technical Challenge, Track 1, Problem 2.
+            Team INTERSTELLAR, SUP'COM, University of Carthage},
+  year   = {2026}
+}</pre>
+          <p class="cite__note">Competition submission, not yet peer-reviewed or archived. The entry above uses only what appears on the paper's title page.</p>
+        </div>
+      </div>
+
+      <div class="pages" aria-label="Paper preview">
+        <a class="pages__main" href="assets/paper/mizan-paper.pdf#page=1" target="_blank" rel="noopener">
+          <img src="assets/paper/page-01.jpg" alt="Page 1 of the paper: title, authors and abstract" width="850" height="1100" loading="lazy" decoding="async">
+          <span class="pages__lab mono">p. 1 · Abstract</span>
+        </a>
+        <a href="assets/paper/mizan-paper.pdf#page=2" target="_blank" rel="noopener"><img src="assets/paper/page-02.jpg" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
+        <a href="assets/paper/mizan-paper.pdf#page=5" target="_blank" rel="noopener"><img src="assets/paper/page-05.jpg" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
+        <a href="assets/paper/mizan-paper.pdf#page=7" target="_blank" rel="noopener"><img src="assets/paper/page-07.jpg" alt="Page 7: cost feedback on the board and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 7 · Board</span></a>
+      </div>
+    </div>
+
+    <div class="materials" aria-labelledby="mat-t">
+      <h3 id="mat-t" class="mono materials__t">Supporting materials</h3>
+      <ul>
+        <li><a href="assets/poster/mizan-poster.pdf" target="_blank" rel="noopener">Poster</a><span>A2 PDF, 1.4 MB</span></li>
+        <li><a href="assets/demo/mizan-mission-twin.mp4" download>Mission-twin video</a><span>MP4, 1:42, 16.7 MB</span></li>
+        <li><a href="assets/demo/captions-en.vtt" download>Video captions</a><span>WebVTT, on-screen text</span></li>
+        <li><span class="materials__na">Code and claim checker</span><span>To be published with the final submission</span></li>
       </ul>
-      <div class="actions">
-        <a class="btn dark" href="assets/mizan-poster.pdf" target="_blank" rel="noopener">Open poster PDF</a>
-        <a class="btn line" href="assets/mizan-poster.pdf" download>Download</a>
-      </div>
     </div>
   </div>
 </section>
 
-<section id="paper">
-  <div class="wrap two">
-    <div class="side">
-      <div class="eyebrow"><i></i>Paper</div>
-      <h2>The paper</h2>
-      <p>15 pages, IEEE format.</p>
-      <div class="abstract"><b>Abstract.</b> We present MIZAN (Arabic for <i>balance</i>), a measure-first adaptive inference system for energy-constrained payloads, and use it to test the three levers such a system has: which model to run, how often to run it, and how much detail to process. MIZAN pairs a calibrated early-exit network at two resolutions with a controller whose safety filter can veto a configuration but never choose one, and which prices energy in closed form from a profiled cost menu, corrected online. Adapting the model saves 52–57 % of per-inference energy on three data-centre accelerators while saturated, and nothing measurable at ten frames per second, because the platform's fixed draw dominates a paced frame. A cost menu profiled on a laptop is 6.5× optimistic on our Raspberry Pi 4B payload. Correcting that menu online cuts mean latency by 31 % and missed deadlines by 49 % on the board. Adaptive inference onboard must measure the platform it runs on, and keep measuring it.</div>
-      <div class="actions" style="margin-top:18px">
-        <a class="btn dark" href="assets/mizan-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
-        <a class="btn line" href="assets/mizan-paper.pdf" download>Download</a>
-      </div>
-    </div>
-    <a class="frame paperthumb" href="assets/mizan-paper.pdf" target="_blank" rel="noopener" style="justify-self:center"><img src="assets/paper-p1.jpg" alt="First page of the MIZAN paper" width="510" height="660"></a>
+<!-- ============================================================ TEAM -->
+<section class="sec sec--paper sec--rule" id="team" aria-labelledby="team-t">
+  <div class="sec__in">
+    <header class="sec__head">
+      <p class="sec__num mono">06 · Team INTERSTELLAR</p>
+      <h2 id="team-t" class="sec__title">The people behind MIZAN.</h2>
+      <p class="sec__intro">École Supérieure des Communications de Tunis (SUP'COM), University of Carthage, Tunisia.</p>
+    </header>
+    <ul class="team">
+      <li class="person">
+        <span class="person__mono" aria-hidden="true">AH</span>
+        <div>
+          <h3>Ahmed Hedhili</h3>
+          <p class="person__role">Inference and profiling</p>
+          <a href="mailto:ahmed.hedhili@supcom.tn">ahmed.hedhili@supcom.tn</a>
+        </div>
+      </li>
+      <li class="person">
+        <span class="person__mono" aria-hidden="true">SE</span>
+        <div>
+          <h3>Salem Essid</h3>
+          <p class="person__role">Controller</p>
+          <a href="mailto:salem.essid@supcom.tn">salem.essid@supcom.tn</a>
+        </div>
+      </li>
+      <li class="person">
+        <span class="person__mono" aria-hidden="true">AM</span>
+        <div>
+          <h3>Ahmed Mnasri</h3>
+          <p class="person__role">Environment and the Raspberry Pi testbed</p>
+          <a href="mailto:ahmed.mnasri@supcom.tn">ahmed.mnasri@supcom.tn</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section id="method">
-  <div class="wrap">
-    <div class="eyebrow"><i></i>Method</div>
-    <h2>How MIZAN decides</h2>
-    <p class="sub">Every frame, the controller reads the satellite's state, proposes the most valuable option it can afford, and lets a safety filter refuse anything that would break a deadline, the battery or the heat limit. What each run really cost is fed back into the menu.</p>
-    <div class="arch">
-<svg viewBox="0 0 520 250" width="100%" font-family="Inter, Arial, sans-serif" role="img" aria-label="MIZAN architecture">
-  <defs>
-    <marker id="ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#17211F"/></marker>
-    <marker id="ahg" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2E8B57"/></marker>
-  </defs>
-  <rect x="96" y="6" width="120" height="44" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
-  <text x="156" y="23" font-size="11" font-weight="700" text-anchor="middle" fill="#17211F">Menu</text>
-  <text x="156" y="38" font-size="8.8" text-anchor="middle" fill="#4F5A56">accuracy · latency · memory</text>
-  <rect x="262" y="6" width="168" height="44" rx="6" fill="#E6F4EC" stroke="#2E8B57" stroke-width="1.4"/>
-  <text x="346" y="23" font-size="11" font-weight="700" text-anchor="middle" fill="#2E8B57">Cost feedback</text>
-  <text x="346" y="38" font-size="8.8" text-anchor="middle" fill="#4F5A56">conformal latency bound, 5 % miss</text>
-  <line x1="216" y1="28" x2="258" y2="28" stroke="#17211F" stroke-width="1.2" marker-end="url(#ah)"/>
-  <rect x="4" y="90" width="84" height="92" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
-  <text x="46" y="107" font-size="10.5" font-weight="700" text-anchor="middle" fill="#17211F">Environment</text>
-  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="46" y="123">battery · heat</text><text x="46" y="136">orbit · eclipse</text><text x="46" y="149">deadline</text><text x="46" y="162">memory</text><text x="46" y="175">frame value</text></g>
-  <rect x="112" y="72" width="168" height="132" rx="8" fill="#EAF2FB" stroke="#1F6FB2" stroke-width="1.6"/>
-  <text x="122" y="88" font-size="11" font-weight="700" fill="#1F6FB2">Controller</text>
-  <rect x="120" y="94" width="152" height="104" rx="5" fill="#fff" stroke="#B9C5C0"/>
-  <text x="196" y="108" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Survival mode</text>
-  <rect x="128" y="114" width="136" height="78" rx="5" fill="#F7F8F6" stroke="#B9C5C0"/>
-  <text x="196" y="127" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Hysteresis</text>
-  <rect x="136" y="133" width="120" height="53" rx="5" fill="#fff" stroke="#B9C5C0"/>
-  <text x="196" y="147" font-size="9.6" font-weight="700" text-anchor="middle" fill="#17211F">Priced Pareto policy</text>
-  <text x="196" y="161" font-size="8.6" text-anchor="middle" fill="#4F5A56">max value × quality − λ·energy</text>
-  <text x="196" y="175" font-size="8.6" text-anchor="middle" fill="#4F5A56">λ in closed form, onboard</text>
-  <rect x="314" y="86" width="86" height="104" rx="6" fill="#FCEDEE" stroke="#C8363F" stroke-width="1.5"/>
-  <text x="357" y="104" font-size="10.5" font-weight="700" text-anchor="middle" fill="#C8363F">Safety filter</text>
-  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="357" y="122">veto only,</text><text x="357" y="134">never chooses</text><text x="357" y="152">p95 + margin</text><text x="357" y="164">≤ deadline</text><text x="357" y="178">battery · heat</text></g>
-  <rect x="432" y="96" width="84" height="84" rx="6" fill="#F1F2EE" stroke="#B9BDB2" stroke-width="1.2"/>
-  <text x="474" y="114" font-size="10.5" font-weight="700" text-anchor="middle" fill="#17211F">Executor</text>
-  <g font-size="8.6" text-anchor="middle" fill="#4F5A56"><text x="474" y="132">early-exit CNN</text><text x="474" y="145">on the Pi 4B</text><text x="474" y="162">or SKIP</text></g>
-  <line x1="88" y1="136" x2="108" y2="136" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
-  <text x="98" y="130" font-size="8.4" text-anchor="middle" fill="#4F5A56">state</text>
-  <line x1="280" y1="138" x2="310" y2="138" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
-  <text x="296" y="132" font-size="8.4" text-anchor="middle" fill="#4F5A56">propose</text>
-  <line x1="400" y1="138" x2="428" y2="138" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
-  <text x="414" y="132" font-size="8.4" text-anchor="middle" fill="#4F5A56">run</text>
-  <path d="M474,96 V28 H434" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
-  <text x="478" y="62" font-size="8.4" fill="#2E8B57">observed</text><text x="478" y="73" font-size="8.4" fill="#2E8B57">latency</text>
-  <path d="M300,50 V62 H220 V68" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
-  <path d="M370,50 V82" fill="none" stroke="#2E8B57" stroke-width="1.4" marker-end="url(#ahg)"/>
-  <text x="300" y="76" font-size="8.4" fill="#2E8B57">corrected menu</text>
-  <path d="M474,180 V228 H46 V186" fill="none" stroke="#17211F" stroke-width="1.3" marker-end="url(#ah)"/>
-  <text x="260" y="242" font-size="8.6" text-anchor="middle" fill="#4F5A56">each frame's energy and latency update the state</text>
-</svg>
-    </div>
-    <div class="levers">
-      <div class="lever"><b>Model</b><span>Exit depth of a MobileNetV3-Small early-exit network: stop early when confident.</span></div>
-      <div class="lever"><b>Frequency</b><span>Run or skip a frame, guided by its value: clear land beats cloud, ocean or night.</span></div>
-      <div class="lever"><b>Quality</b><span>Process the image at 48 or 64 px.</span></div>
-    </div>
-  </div>
-</section>
+</main>
 
-<section id="team">
-  <div class="wrap">
-    <div class="eyebrow"><i></i>Team INTERSTELLAR</div>
-    <h2>Contact</h2>
-    <p class="sub">École Supérieure des Communications de Tunis (SUP'COM), University of Carthage, Tunisia.</p>
-    <div class="team">
-      <div class="person"><div class="avatar">AH</div><div><b>Ahmed Hedhili</b><a href="mailto:ahmed.hedhili@supcom.tn">ahmed.hedhili@supcom.tn</a></div></div>
-      <div class="person"><div class="avatar">SE</div><div><b>Salem Essid</b><a href="mailto:salem.essid@supcom.tn">salem.essid@supcom.tn</a></div></div>
-      <div class="person"><div class="avatar">AM</div><div><b>Ahmed Mnasri</b><a href="mailto:ahmed.mnasri@supcom.tn">ahmed.mnasri@supcom.tn</a></div></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span><b>MIZAN</b> (ميزان) means <i>balance</i> in Arabic: accuracy weighed against the energy and time it costs.</span>
-    <span>Team INTERSTELLAR · SUP'COM · IASTAM 6.0 · 2026</span>
+<footer class="foot">
+  <div class="foot__in">
+    <p class="foot__name"><span lang="ar">ميزان</span> <em>balance</em>: accuracy weighed against the energy and time it costs.</p>
+    <p class="mono">Team INTERSTELLAR · SUP'COM · IASTAM 6.0 · 2026</p>
+    <a href="#top" class="mono">Back to top ↑</a>
   </div>
 </footer>
-
-<div id="lb" role="dialog" aria-label="Poster full size"><button class="x" aria-label="Close">×</button><img src="assets/poster.jpg" alt="MIZAN poster, full size"></div>
-<script>
-(function(){
-  var lb=document.getElementById('lb');
-  document.getElementById('openPoster').addEventListener('click',function(e){e.preventDefault();lb.classList.add('on');document.body.style.overflow='hidden';});
-  lb.addEventListener('click',function(){lb.classList.remove('on');document.body.style.overflow='';});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('on');document.body.style.overflow='';}});
-})();
-</script>
 </body>
 </html>
