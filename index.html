@@ -21,7 +21,7 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav" id="top">
+<header class="nav">
   <div class="nav__in">
     <a class="wordmark" href="#top" aria-label="MIZAN, back to top">
       <svg class="wordmark__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 11h24M16 6v20M10 26h12M8 11l-4 8h8zM24 11l-4 8h8z"/></svg>
@@ -42,10 +42,10 @@
 <main id="main">
 
 <!-- ============================================================ HERO -->
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero" id="top" aria-labelledby="hero-title">
   <div class="hero__in">
     <div class="hero__copy">
-      <p class="eyebrow">IASTAM 6.0 · Track 1 · Problem 2 · AI inference under energy constraints</p>
+      <p class="eyebrow">IASTAM 6.0 · Track 1 · Problem 2</p>
       <h1 id="hero-title" class="hero__title">Every frame has a cost. <em>Make it count.</em></h1>
       <p class="hero__lead">Onboard AI that measures its hardware, then adapts to the mission.</p>
       <div class="hero__actions">
@@ -55,7 +55,6 @@
         </button>
         <a class="link-arrow" href="#idea">How it works</a>
       </div>
-      <p class="hero__by">Team INTERSTELLAR · SUP'COM, University of Carthage, Tunisia</p>
     </div>
 
     <figure class="twin" id="twin" aria-labelledby="twin-cap">
@@ -100,13 +99,10 @@
 
       <div class="legend" aria-hidden="true">
         <span><i class="c c--ok"></i>on time</span><span><i class="c c--miss"></i>missed</span><span><i class="c c--pause"></i>paused to cool</span>
-        <span class="legend__note">1 square = 1 frame (5 s) · 108 frames over Tunis</span>
+        <span class="legend__note">1 square = 1 frame (5 s)</span>
       </div>
 
-      <figcaption id="twin-cap" class="twin__cap">
-        <strong>Recorded simulation result, not flight data.</strong> One orbit and a third, 1,530 decisions; every missed deadline in both runs falls in this 9-minute pass, when the downlink slows inference 2.4×. This control replays the recorded outcomes of the two runs; it does not execute the controller.
-        <span class="src">Source: mission-twin run, <code>experiments/mission_twin.py</code>, 8 Oct 2026.</span>
-      </figcaption>
+      <figcaption id="twin-cap" class="twin__cap"><strong>Recorded simulation result, not flight data.</strong> Replays two recorded runs of the mission twin; it does not execute the controller.</figcaption>
     </figure>
   </div>
 </section>
@@ -122,7 +118,6 @@
     <div class="idea">
       <div class="idea__text prose">
         <p class="lede">A satellite that runs AI onboard must decide, frame by frame, how much of a small and shifting energy, memory and time budget each inference deserves.</p>
-        <p>Adaptive inference systems usually choose from a <em>cost menu</em> profiled once, on a development machine. On our Raspberry Pi 4B payload that menu was about 6.5× too optimistic, so a controller that trusted it planned for deadlines it could not meet.</p>
         <p><strong>MIZAN</strong> (ميزان, Arabic for <em>balance</em>) weighs accuracy against the energy and time it costs, using costs measured on the board it runs on, and keeps correcting them while it flies. Its safety filter can refuse a configuration but never chooses one.</p>
       </div>
 
@@ -139,47 +134,39 @@
     <div class="loop" aria-labelledby="loop-t">
       <div class="loop__head">
         <h3 id="loop-t" class="loop__title">How MIZAN decides, every frame</h3>
-        <p class="loop__sub">Each step is shown with one real decision from the mission twin: decision 187, over Germany, with the Tunis link open. <span class="ev ev--sim">Simulated</span></p>
       </div>
       <ol class="loop__steps">
         <li class="step">
           <span class="step__n mono">1</span>
           <h4>Observe state</h4>
           <p>Battery, temperature, deadline, memory and the value of the frame.</p>
-          <p class="step__ex mono">deadline 40.0 ms · clear land, value 1.0 · 26.8 °C · 4,066 J usable</p>
         </li>
         <li class="step">
           <span class="step__n mono">2</span>
           <h4>Propose configuration</h4>
           <p>The most valuable option the energy price allows, from the corrected menu.</p>
-          <p class="step__ex mono">early-exit 64 px: 6.2 ms × 6.29 = 39.2 ms &gt; 38.0 ms budget → exit 1 · 64 px</p>
         </li>
         <li class="step step--veto">
           <span class="step__n mono">3</span>
           <h4>Safety veto</h4>
           <p>Refuse anything whose bound breaks the deadline, battery or heat limit. It can veto; it never chooses.</p>
-          <p class="step__ex mono">believed 11.9 ms, fits the budget · no veto</p>
         </li>
         <li class="step">
           <span class="step__n mono">4</span>
           <h4>Execute</h4>
           <p>Run the chosen exit and resolution on the board, or skip the frame.</p>
-          <p class="step__ex mono">exit 1 at 64 px on the payload computer</p>
         </li>
         <li class="step">
           <span class="step__n mono">5</span>
           <h4>Measure actual cost</h4>
           <p>Time what the board really took.</p>
-          <p class="step__ex mono">measured 26.8 ms · deadline 40.0 ms · on time</p>
         </li>
         <li class="step">
           <span class="step__n mono">6</span>
           <h4>Update the cost menu</h4>
           <p>Fold measured over predicted into a conformal latency bound for the next frame.</p>
-          <p class="step__ex mono">measured ÷ menu → correction updated</p>
         </li>
       </ol>
-      <p class="loop__return mono" aria-hidden="true">↺ next frame, 5 s later</p>
     </div>
   </div>
 </section>
@@ -190,7 +177,7 @@
     <header class="sec__head">
       <p class="sec__num mono">02 · Results</p>
       <h2 id="res-t" class="sec__title">On the board, measuring buys deadline safety.</h2>
-      <p class="sec__intro">Every claim carries its evidence status and its conditions. <span class="ev ev--meas">Measured</span> on hardware, <span class="ev ev--est">Estimated</span> from declared constants, <span class="ev ev--sim">Simulated</span>.</p>
+      <p class="sec__intro"><span class="ev ev--meas">Measured</span> <span class="ev ev--sim">Simulated</span></p>
     </header>
 
     <article class="claim claim--lead" aria-labelledby="c1-t">
@@ -228,11 +215,8 @@
           </div>
         </div>
         <dl class="cond">
-          <div><dt>Board</dt><dd>Raspberry Pi 4B, second session, desktop running</dd></div>
-          <div><dt>Frames</dt><dd>Synthetic, 720 per arm, feedback off and on interleaved, six trials per arm</dd></div>
-          <div><dt>Statistics</dt><dd>Misses 7.5 to 3.8 per trial, p = 0.0065; latency p = 0.0011 (exact permutation test)</dd></div>
-          <div><dt>Cost</dt><dd>2.71 points of menu-ascribed accuracy</dd></div>
-          <div><dt>Limit</dt><dd>The cheapest fixed option still missed none (first session, 360 frames, not interleaved). On real images (session 4), feedback helped only at low clock: misses 15 to 12, p = 0.008.</dd></div>
+          <div><dt>Conditions</dt><dd>Pi 4B, synthetic frames, 720 per arm, interleaved; p = 0.0065 (misses), p = 0.0011 (latency)</dd></div>
+          <div><dt>Limit</dt><dd>The cheapest fixed option still missed none</dd></div>
           <div><dt>Source</dt><dd>Paper, Section IV-G, Table VI</dd></div>
         </dl>
       </div>
@@ -248,7 +232,7 @@
           <div class="ratio__row"><span class="ratio__lab">Pi 4B, measured</span><span class="ratio__bar ratio__bar--pi" style="--w:100%"></span><span class="ratio__v mono">6.5×</span></div>
         </div>
         <dl class="cond cond--tight">
-          <div><dt>Conditions</dt><dd>Fastest quarter (p25) against the re-measured host, 1.45 ms: 6.56× and 6.50× in two sessions; 6.60× headless with real images</dd></div>
+          <div><dt>Conditions</dt><dd>Fastest quarter (p25), two sessions: 6.56× and 6.50×</dd></div>
           <div><dt>Source</dt><dd>Paper, Section IV-F</dd></div>
         </dl>
       </article>
@@ -267,38 +251,10 @@
           </tbody>
         </table>
         <dl class="cond cond--tight">
-          <div><dt>Conditions</dt><dd>Three trials, 95&nbsp;% intervals in the paper; the 10 fps intervals contain zero. Not measured on the satellite payload.</dd></div>
+          <div><dt>Conditions</dt><dd>Saturated GPUs; not measured on the satellite payload</dd></div>
           <div><dt>Source</dt><dd>Paper, Section IV-B, Table III</dd></div>
         </dl>
       </article>
-    </div>
-
-    <div class="ledger" aria-labelledby="ledger-t">
-      <div class="ledger__head">
-        <h3 id="ledger-t" class="ledger__title">Evidence ledger <span class="mono">Paper, Table II</span></h3>
-        <div class="filter" role="group" aria-label="Filter findings by evidence">
-          <button type="button" class="chip" aria-pressed="true" data-filter="all">All 8</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="meas">Measured</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="est">Estimated</button>
-          <button type="button" class="chip" aria-pressed="false" data-filter="sim">Simulated</button>
-        </div>
-      </div>
-      <div class="ledger__scroll">
-      <table class="ledger__t">
-        <thead><tr><th scope="col">#</th><th scope="col">Finding</th><th scope="col">Key number</th><th scope="col">Evidence</th><th scope="col">Section</th></tr></thead>
-        <tbody>
-          <tr data-ev="meas"><td class="mono">F1</td><td>The model lever saves energy only when the accelerator is saturated</td><td>52–57&nbsp;% saturated; indistinguishable from 0 at 10 fps</td><td><span class="ev ev--meas">Measured</span> GPU boards</td><td class="mono">IV-B</td></tr>
-          <tr data-ev="meas"><td class="mono">F2</td><td>A host-profiled menu is optimistic on the board</td><td>about 6.5× at the floor</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-F</td></tr>
-          <tr data-ev="meas"><td class="mono">F3</td><td>Cost feedback recovers deadlines on the board</td><td>−48.9&nbsp;% misses (p = 0.0065), −31.1&nbsp;% mean latency (p = 0.0011)</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-G</td></tr>
-          <tr data-ev="meas"><td class="mono">F4</td><td>The cheapest fixed option still misses fewer deadlines</td><td>0 vs 23 misses; 0 again when interleaved (session 4)</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-G</td></tr>
-          <tr data-ev="sim"><td class="mono">F5</td><td>The onboard energy price needs no hindsight where energy binds</td><td>98.4&nbsp;% of optimum; hindsight price and cheapest option 97.6&nbsp;%</td><td><span class="ev ev--sim">Simulated</span></td><td class="mono">IV-D</td></tr>
-          <tr data-ev="est"><td class="mono">F6</td><td>Inference is a few percent of a paced frame's energy on the board</td><td>0.2–3.4&nbsp;%</td><td><span class="ev ev--est">Estimated</span></td><td class="mono">IV-F</td></tr>
-          <tr data-ev="sim"><td class="mono">F7</td><td>The onboard price removes the breaches a hand-set price causes</td><td>454 (policy) and 154 (full stack) to 0</td><td><span class="ev ev--sim">Simulated</span></td><td class="mono">IV-H</td></tr>
-          <tr data-ev="meas"><td class="mono">F8</td><td>The board makes the host's decision on every frame</td><td>2,560 of 2,560 frames, real images</td><td><span class="ev ev--meas">Measured</span> Pi 4B</td><td class="mono">IV-F</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p class="ledger__note">Why the energy lever is weak on the payload: from a published Pi 4 base draw (1,518 mW), a declared 2.0 W active increment, the 5 s frame and the slowest mean latency measured (26.95 ms), one inference is about 0.7&nbsp;% of a frame's energy, and 0.2–3.4&nbsp;% across any plausible mismatch. On a duty-cycled payload, how often to run matters more than how deep.</p>
     </div>
   </div>
 </section>
@@ -329,17 +285,10 @@
           <button type="button" data-t="79"><span class="mono">1:19</span>Recovery</button>
           <button type="button" data-t="84"><span class="mono">1:24</span>Results</button>
         </div>
-        <p class="demo__dl"><a href="mizan-mission-twin.mp4" download>Download MP4</a> · 1:42 · 16.7 MB · no audio, captions carry the on-screen text</p>
+        <p class="demo__dl"><a href="mizan-mission-twin.mp4" download>Download MP4</a></p>
       </div>
       <div class="demo__text" id="demo-desc">
-        <p>A simulated 3U CubeSat flies a 500 km sun-synchronous orbit with one solar wing stuck. During the pass over the SUP'COM ground station in Tunis, the downlink shares the payload computer and slows inference 2.4×. Then comes a 35-minute eclipse with the battery short of reserve.</p>
-        <p>The repository's own controller decides every frame twice, with and without cost feedback. Battery and temperature respond to what it runs.</p>
-        <ul class="chips" aria-label="What is real in this run">
-          <li>Orbit, eclipse, ground pass: computed</li>
-          <li>Board latency: modelled from measured ratios</li>
-          <li>Power and heat: declared</li>
-          <li>Energy: simulated, no meter</li>
-        </ul>
+        <p>A simulated 3U CubeSat with one solar wing stuck: a ground pass over Tunis that slows inference 2.4×, then a 35-minute eclipse. The repository's own controller decides every frame, with and without cost feedback.</p>
         <table class="mini">
           <caption>This run's log <span class="ev ev--sim">Simulated</span></caption>
           <thead><tr><th scope="col">Controller</th><th scope="col">Missed</th><th scope="col">Mean latency</th><th scope="col">Exp. accuracy</th></tr></thead>
@@ -350,7 +299,6 @@
             <tr><th scope="row">Static, cheapest</th><td>0</td><td>12.9 ms</td><td>86.4&nbsp;%</td></tr>
           </tbody>
         </table>
-        <p class="demo__note">On this narrow menu the cheapest fixed option still misses nothing, which is the paper's finding too; it never rests through heat or low battery, though. Simulation, not flight data. Source: <code>docs/mission-twin.md</code>.</p>
       </div>
     </div>
   </div>
@@ -364,7 +312,6 @@
         <p class="sec__num mono">04 · Poster</p>
         <h2 id="poster-t" class="sec__title">The A2 poster, explorable.</h2>
       </div>
-      <p class="sec__intro">Pick a section, zoom with the buttons, drag to pan, or use the arrow keys when the poster is focused.</p>
     </header>
 
     <div class="pv" id="pv">
@@ -377,7 +324,6 @@
           <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.255,0.47,0.5" data-d="Evaluation against the five indicators, the key numbers with their evidence labels, the lever regime map and the robustness chart.">Results</button>
           <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.749,0.47,0.228" data-d="Conclusion, roadmap and references, with the QR code that opens this site.">Roadmap</button>
         </div>
-        <p class="pv__desc" id="pv-desc" aria-live="polite">The whole A2 poster: eight sections in two columns, from the problem to the roadmap.</p>
         <div class="pv__zoom" role="group" aria-label="Zoom">
           <button type="button" data-z="out" aria-label="Zoom out">−</button>
           <output id="pv-level" class="mono" aria-live="polite">100&nbsp;%</output>
@@ -402,13 +348,12 @@
     <header class="sec__head">
       <p class="sec__num mono">05 · Paper</p>
       <h2 id="paper-t" class="sec__title">MIZAN: Measure-First Adaptive Inference for Energy-Constrained Satellite Payloads</h2>
-      <p class="sec__intro">Ahmed Hedhili, Salem Essid, Ahmed Mnasri · IASTAM 6.0 Technical Challenge · 25 pages with appendices, IEEE format.</p>
+      <p class="sec__intro">Ahmed Hedhili, Salem Essid, Ahmed Mnasri · IASTAM 6.0</p>
     </header>
 
     <div class="paper">
       <div class="paper__text prose">
         <p class="lede">We test the three levers an adaptive inference system has on a satellite: which model to run, how often to run it, and how much detail to process.</p>
-        <p>MIZAN pairs a calibrated early-exit network at two resolutions with a controller that prices energy in closed form from a profiled cost menu, corrected online, behind a safety filter that can veto but never choose.</p>
         <p>Three findings follow. The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, the computing board of the BUPT-1 CubeSat. Correcting it online cuts missed deadlines by 49&nbsp;% on the board, while the cheapest fixed option still misses fewer, which sets the next step.</p>
         <div class="paper__actions">
           <a class="btn btn--ink" href="mizan-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
@@ -417,15 +362,14 @@
 
         <div class="cite">
           <div class="cite__head"><h3 class="mono">Cite this work</h3><button type="button" class="chip" id="cite-copy">Copy BibTeX</button></div>
-<pre id="cite-bib" tabindex="0">@misc{hedhili2026mizan,
+<pre id="cite-bib" tabindex="0">@misc{mizan,
   title  = {{MIZAN}: Measure-First Adaptive Inference for
             Energy-Constrained Satellite Payloads},
-  author = {Hedhili, Ahmed and Essid, Salem and Mnasri, Ahmed},
+  authors = {Ahmed Hedhili, Salem Essid,  Ahmed Mnasri},
   note   = {IASTAM 6.0 Technical Challenge, Track 1, Problem 2.
             Team INTERSTELLAR, SUP'COM, University of Carthage},
   year   = {2026}
 }</pre>
-          <p class="cite__note">Competition submission, not yet peer-reviewed or archived. The entry above uses only what appears on the paper's title page.</p>
         </div>
       </div>
 
@@ -445,8 +389,7 @@
       <ul>
         <li><a href="mizan-poster.pdf" target="_blank" rel="noopener">Poster</a><span>A2 PDF, 1.4 MB</span></li>
         <li><a href="mizan-mission-twin.mp4" download>Mission-twin video</a><span>MP4, 1:42, 16.7 MB</span></li>
-        <li><a href="captions-en.vtt" download>Video captions</a><span>WebVTT, on-screen text</span></li>
-        <li><span class="materials__na">Code and claim checker</span><span>To be published with the final submission</span></li>
+        <li><span class="materials__na">Code and claim checker</span><span>Coming with the final submission</span></li>
       </ul>
     </div>
   </div>

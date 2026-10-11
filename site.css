@@ -456,3 +456,4 @@ code{font-family:var(--mono);font-size:.88em}
 }
 .player__err{position:absolute;inset:auto 0 0 0;padding:14px 16px;background:rgba(11,17,16,.92);color:var(--deck-ink);font-size:14.5px}
 .player__err a{color:var(--mizan-deck)}
+#hero-title:focus{outline:none}

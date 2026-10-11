@@ -190,7 +190,7 @@
       b.addEventListener("click", function () {
         secBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
         current = b.getAttribute("data-r").split(",").map(Number);
-        desc.textContent = b.getAttribute("data-d");
+        if (desc) desc.textContent = b.getAttribute("data-d");
         show(current, true);
       });
     });
@@ -270,6 +270,16 @@
     if (img.complete) init(); else img.addEventListener("load", init, { once: true });
     init();
   }
+
+  /* ---------------------------------------------------------- back to top */
+  $$('a[href="#top"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname);
+      var h = document.getElementById("hero-title"); if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+    });
+  });
 
   /* ---------------------------------------------------------- copy citation */
   var cb = $("#cite-copy"), bib = $("#cite-bib");
