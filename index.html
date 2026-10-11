@@ -318,11 +318,11 @@
       <div class="pv__side">
         <div class="pv__sections" role="group" aria-label="Poster sections">
           <button type="button" class="pv__sec" aria-pressed="true" data-r="0,0,1,1" data-d="The whole A2 poster: eight sections in two columns, from the problem to the roadmap.">Whole poster</button>
-          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.255,0.465,0.33" data-d="Context and problem, objectives and related work: the three levers, the five indicators, and how MIZAN differs from Φ-Sat-1, Kodan, early-exit work, E3C and Equinox.">Problem</button>
-          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.584,0.465,0.243" data-d="Proposed approach: the four-step flow and the controller architecture, with the cost feedback loop and the veto-only safety filter.">Method</button>
-          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.824,0.465,0.145" data-d="Prototype and testbed: the early-exit model and the Raspberry Pi 4B energy probe, with the charger cable as shunt and a GPIO marker read by an oscilloscope.">Testbed</button>
-          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.255,0.47,0.5" data-d="Evaluation against the five indicators, the key numbers with their evidence labels, the lever regime map and the robustness chart.">Results</button>
-          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.515,0.749,0.47,0.228" data-d="Conclusion, roadmap and references, with the QR code that opens this site.">Roadmap</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.255,0.47,0.30" data-d="Context and problem, objectives and related work: the three levers, the five indicators, and how MIZAN differs from Φ-Sat-1, Kodan, early-exit work, E3C and Equinox.">Problem</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.555,0.47,0.21" data-d="Proposed approach: the four-step flow and the controller architecture, with the cost feedback loop and the veto-only safety filter.">Method</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.02,0.765,0.47,0.21" data-d="Prototype and testbed: the early-exit model and the Raspberry Pi 4B energy probe, with the charger cable as shunt and a GPIO marker read by an oscilloscope.">Testbed</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.507,0.255,0.47,0.44" data-d="Evaluation against the five indicators, the key numbers with their evidence labels, the lever regime map and the robustness chart.">Results</button>
+          <button type="button" class="pv__sec" aria-pressed="false" data-r="0.507,0.695,0.47,0.285" data-d="Conclusion, roadmap and references, with the QR code that opens this site.">Roadmap</button>
         </div>
         <div class="pv__zoom" role="group" aria-label="Zoom">
           <button type="button" data-z="out" aria-label="Zoom out">−</button>
@@ -354,10 +354,10 @@
     <div class="paper">
       <div class="paper__text prose">
         <p class="lede">We test the three levers an adaptive inference system has on a satellite: which model to run, how often to run it, and how much detail to process.</p>
-        <p>Three findings follow. The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, the computing board of the BUPT-1 CubeSat. Correcting it online cuts missed deadlines by 49&nbsp;% on the board, while the cheapest fixed option still misses fewer, which sets the next step.</p>
+        <p>The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, and correcting it online cuts missed deadlines by 49&nbsp;% on the board. In a pre-registered held-out evaluation the system caused no breach in 100 simulated runs, but lost quality under heat; a rule written afterwards that steps down instead reaches 94.3&nbsp;% on fresh seeds, above every fixed option.</p>
         <div class="paper__actions">
           <a class="btn btn--ink" href="mizan-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
-          <a class="btn btn--line" href="mizan-paper.pdf" download>Download · 0.5 MB</a>
+          <a class="btn btn--line" href="mizan-paper.pdf" download>Download · 0.2 MB</a>
         </div>
 
         <div class="cite">
@@ -380,7 +380,7 @@
         </a>
         <a href="mizan-paper.pdf#page=2" target="_blank" rel="noopener"><img src="page-02.jpg" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
         <a href="mizan-paper.pdf#page=5" target="_blank" rel="noopener"><img src="page-05.jpg" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
-        <a href="mizan-paper.pdf#page=7" target="_blank" rel="noopener"><img src="page-07.jpg" alt="Page 7: cost feedback on the board and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 7 · Board</span></a>
+        <a href="mizan-paper.pdf#page=7" target="_blank" rel="noopener"><img src="page-07.jpg" alt="Page 7: held-out evaluation (Table V) and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 7 · Held out</span></a>
       </div>
     </div>
 
