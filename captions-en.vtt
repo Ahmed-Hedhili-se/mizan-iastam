@@ -1,0 +1,57 @@
+WEBVTT
+
+NOTE The video has no narration. These captions carry its on-screen text.
+
+00:00.500 --> 00:06.000
+MIZAN mission twin. One orbit and a third: 1,530 decisions, closed loop.
+
+00:06.000 --> 00:12.000
+A 3U CubeSat, 500 km sun-synchronous, with one solar wing stuck. The repository's own controller decides every frame, twice: with cost feedback and without.
+
+00:16.000 --> 00:22.600
+Europe below. Every 5 s, one frame, one decision. A value detector rates each frame (clear land 1.0, cloud 0.35, ocean 0.1, too dark 0).
+
+00:25.200 --> 00:28.600
+Acquisition of signal over Tunis. The downlink shares the processor: inference is now 2.4× slower, and nobody told the controller.
+
+00:28.600 --> 00:35.400
+One iteration, opened up (decision 187): five slow frames taught it the board is busy. Early-exit at 64 px is now believed to take 39.2 ms, over the 38.0 ms budget, so MIZAN runs exit 1 at 64 px. Measured 26.8 ms: on time.
+
+00:35.600 --> 00:41.000
+Same pass, both twins. MIZAN stepped down; the menu-trusting twin keeps missing. Every 12th frame MIZAN re-tests the published cost.
+
+00:43.800 --> 00:46.900
+Radio heat, payload at 38 °C. Survival mode pauses inference until it cools. The safety filter can veto; only the controller chooses.
+
+00:47.700 --> 00:50.400
+Loss of signal. Link closed, and the learned cost comes back down.
+
+00:50.600 --> 00:57.600
+The long way round: West Africa, the South Atlantic, Antarctica. Ocean is worth little but costs almost nothing, so MIZAN keeps imaging.
+
+00:58.400 --> 01:01.800
+Entering eclipse: no sunlight for 35 minutes, and the battery entered short of reserve.
+
+01:05.300 --> 01:08.400
+Battery saving mode: a narrower, cheaper menu.
+
+01:09.500 --> 01:12.200
+Battery critical: only the cheapest exit, only valuable frames. The platform's own 2 W drew the battery down, not inference.
+
+01:12.500 --> 01:15.000
+Sunrise. Charging again, at 3.1 W instead of 7.
+
+01:15.900 --> 01:18.900
+Orbit 2. Still in saving mode until the battery climbs past the threshold plus a margin (hysteresis).
+
+01:19.000 --> 01:23.000
+Back to nominal: full capability, recovered on its own.
+
+01:24.000 --> 01:31.000
+This run's log. Missed deadlines: MIZAN 12, menu-trusting 64, static richest 88, static cheapest 0.
+
+01:31.000 --> 01:36.000
+Cost feedback: 12 misses instead of 64, for 0.6 points of expected accuracy. The fixed cheapest option still misses nothing on this narrow menu.
+
+01:36.000 --> 01:42.000
+MIZAN measures the board it flies on, every frame. Simulation, not flight data. Team INTERSTELLAR, SUP'COM, IASTAM 6.0.
