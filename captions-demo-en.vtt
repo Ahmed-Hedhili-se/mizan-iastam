@@ -1,0 +1,79 @@
+WEBVTT
+
+00:06.600 --> 00:12.005
+Every five seconds, this satellite takes a picture, and has forty milliseconds to understand it.
+
+00:12.400 --> 00:16.563
+Its power, its memory and its time are all limited, and all changing.
+
+00:17.600 --> 00:22.866
+Adaptive AI usually picks from a cost sheet, written on a developer's laptop.
+
+00:23.800 --> 00:27.893
+On the flight board, that sheet was six and a half times too optimistic.
+
+00:31.600 --> 00:33.402
+MIZAN weighs every frame.
+
+00:33.402 --> 00:35.277
+How deep the network runs.
+
+00:35.277 --> 00:36.863
+Whether to run at all.
+
+00:36.863 --> 00:38.232
+At what resolution.
+
+00:38.800 --> 00:42.154
+A safety filter can refuse a choice, but never make one.
+
+00:42.154 --> 00:47.126
+And every frame, MIZAN measures what the board really took, and corrects the sheet.
+
+00:48.300 --> 00:51.418
+Over Tunis, the radio steals the processor.
+
+00:54.800 --> 00:58.435
+The twin that trusts its sheet misses sixty-four deadlines.
+
+00:58.435 --> 01:02.255
+MIZAN learns the board is busy, steps down, and misses twelve.
+
+01:03.100 --> 01:06.752
+When the radio heats the payload, it pauses, and cools.
+
+01:07.900 --> 01:13.375
+In eclipse, with one wing stuck, it narrows its menu, then rests, and recovers on its own.
+
+01:14.500 --> 01:16.751
+Then another task takes the memory.
+
+01:16.751 --> 01:20.804
+The cheapest fixed model no longer fits, and loses every frame.
+
+01:20.804 --> 01:22.477
+MIZAN's choice still fits.
+
+01:22.477 --> 01:23.570
+It keeps imaging.
+
+01:24.900 --> 01:25.942
+And the surprise:
+
+01:25.942 --> 01:29.620
+the AI used less than one percent of the satellite's energy.
+
+01:29.620 --> 01:33.911
+The lever is when to power the payload, not how deep the network runs.
+
+01:35.300 --> 01:39.374
+On the real board, correcting the sheet cut missed deadlines by half.
+
+01:39.374 --> 01:46.459
+On scenarios it had never seen, it held ninety-nine and a half percent of the optimum, with no breach in a hundred runs.
+
+01:50.000 --> 01:50.371
+MIZAN.
+
+01:50.371 --> 01:53.775
+It measures the board it flies on, and keeps measuring.

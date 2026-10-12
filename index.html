@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MIZAN · Measure-first adaptive inference for satellites · Team INTERSTELLAR</title>
-<meta name="description" content="MIZAN is onboard AI that measures its hardware, then adapts to the mission. Poster, paper, mission-twin demo and measured results from Team INTERSTELLAR, SUP'COM, for IASTAM 6.0.">
+<meta name="description" content="MIZAN is onboard AI that measures its hardware, then adapts to the mission. Poster, paper, demo video and measured results from Team INTERSTELLAR, SUP'COM, for IASTAM 6.0.">
 <meta property="og:title" content="MIZAN · Every frame has a cost. Make it count.">
 <meta property="og:description" content="Measure-first adaptive inference for energy-constrained satellite payloads. Team INTERSTELLAR, SUP'COM, IASTAM 6.0.">
 <meta property="og:image" content="https://ahmed-hedhili-se.github.io/mizan-iastam/og.jpg">
@@ -264,31 +264,34 @@
   <div class="sec__in">
     <header class="sec__head">
       <p class="sec__num mono">03 · Demo</p>
-      <h2 id="demo-t" class="sec__title">Mission twin: one orbit and a third, 1,530 decisions.</h2>
+      <h2 id="demo-t" class="sec__title">Every frame has a deadline. Watch MIZAN keep it.</h2>
     </header>
     <div class="demo">
       <div class="demo__media">
         <div class="player" id="player">
-          <video id="demo-video" controls playsinline preload="none" poster="cover.jpg?v=20261011d" width="1600" height="900" aria-describedby="demo-desc">
-            <source src="mizan-mission-twin.mp4" type="video/mp4">
-            <source src="mizan-mission-twin.webm" type="video/webm" id="last-src">
-            <track kind="captions" src="captions-en.vtt" srclang="en" label="English (on-screen text)" default>
+          <video id="demo-video" controls playsinline preload="none" poster="demo-cover.jpg?v=20261012" width="1600" height="900" aria-describedby="demo-desc">
+            <source src="mizan-demo.mp4?v=20261012" type="video/mp4" id="last-src">
+            <track kind="captions" src="captions-demo-en.vtt?v=20261012" srclang="en" label="English">
           </video>
-          <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="mizan-mission-twin.mp4" download>Download the MP4</a> instead.</p>
+          <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="mizan-demo.mp4" download>Download the MP4</a> instead.</p>
         </div>
         <div class="chapters" role="group" aria-label="Jump to a moment in the video">
-          <button type="button" data-t="0"><span class="mono">0:00</span>Orbit</button>
-          <button type="button" data-t="25.2"><span class="mono">0:25</span>Downlink</button>
-          <button type="button" data-t="28.6"><span class="mono">0:29</span>One decision</button>
-          <button type="button" data-t="43.8"><span class="mono">0:44</span>Heat</button>
-          <button type="button" data-t="58.4"><span class="mono">0:58</span>Eclipse</button>
-          <button type="button" data-t="79"><span class="mono">1:19</span>Recovery</button>
-          <button type="button" data-t="84"><span class="mono">1:24</span>Results</button>
+          <button type="button" data-t="0"><span class="mono">0:00</span>Hook</button>
+          <button type="button" data-t="6"><span class="mono">0:06</span>The satellite</button>
+          <button type="button" data-t="17"><span class="mono">0:17</span>The cost sheet</button>
+          <button type="button" data-t="31"><span class="mono">0:31</span>The idea</button>
+          <button type="button" data-t="47.6"><span class="mono">0:47</span>Time</button>
+          <button type="button" data-t="62.5"><span class="mono">1:02</span>Heat</button>
+          <button type="button" data-t="67.3"><span class="mono">1:07</span>Energy</button>
+          <button type="button" data-t="74"><span class="mono">1:14</span>Memory</button>
+          <button type="button" data-t="84"><span class="mono">1:24</span>The twist</button>
+          <button type="button" data-t="94.6"><span class="mono">1:34</span>Proof</button>
+          <button type="button" data-t="107"><span class="mono">1:47</span>MIZAN</button>
         </div>
-        <p class="demo__dl"><a href="mizan-mission-twin.mp4" download>Download MP4</a></p>
+        <p class="demo__dl"><a href="mizan-demo.mp4" download>Download MP4</a></p>
       </div>
       <div class="demo__text" id="demo-desc">
-        <p>A simulated 3U CubeSat with one solar wing stuck: a ground pass over Tunis that slows inference 2.4×, then a 35-minute eclipse. The repository's own controller decides every frame, with and without cost feedback.</p>
+        <p>A two-minute narrated demo. A simulated 3U CubeSat has 40 ms per frame. Over Tunis the downlink slows inference 2.4×, then come heat, an eclipse and a co-tenant task that takes the RAM. The repository's own controller decides every frame, with and without cost feedback. Orbit sequences are simulations; board numbers are measured on a Raspberry Pi 4B.</p>
         <table class="mini">
           <caption>This run's log <span class="ev ev--sim">Simulated</span></caption>
           <thead><tr><th scope="col">Controller</th><th scope="col">Missed</th><th scope="col">Mean latency</th><th scope="col">Exp. accuracy</th></tr></thead>
@@ -388,7 +391,7 @@
       <h3 id="mat-t" class="mono materials__t">Supporting materials</h3>
       <ul>
         <li><a href="mizan-poster.pdf?v=20261011d" target="_blank" rel="noopener">Poster</a><span>A2 PDF, 1.4 MB</span></li>
-        <li><a href="mizan-mission-twin.mp4" download>Mission-twin video</a><span>MP4, 1:42, 16.7 MB</span></li>
+        <li><a href="mizan-demo.mp4" download>Demo video</a><span>MP4, 2:00, 17.9 MB</span></li>
         <li><span class="materials__na">Code and claim checker</span><span>Coming with the final submission</span></li>
       </ul>
     </div>
