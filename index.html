@@ -188,7 +188,7 @@
         <p class="claim__text">After online cost correction, on the target board. The controller stopped trusting the laptop menu and spread its choices across seven options instead of one.</p>
       </div>
       <div class="claim__viz">
-        <div class="bars" role="table" aria-label="Cost feedback on the target board, Table VI">
+        <div class="bars" role="table" aria-label="Cost feedback on the target board, Section IV-G">
           <div class="bars__row" role="row">
             <span class="bars__lab" role="rowheader">Deadline misses <small>of 720 frames per arm</small></span>
             <div class="bars__pair" role="cell">
@@ -217,7 +217,7 @@
         <dl class="cond">
           <div><dt>Conditions</dt><dd>Pi 4B, synthetic frames, 720 per arm, interleaved; p = 0.0065 (misses), p = 0.0011 (latency)</dd></div>
           <div><dt>Limit</dt><dd>The cheapest fixed option still missed none</dd></div>
-          <div><dt>Source</dt><dd>Paper, Section IV-G, Table VI</dd></div>
+          <div><dt>Source</dt><dd>Paper, Section IV-G</dd></div>
         </dl>
       </div>
     </article>
@@ -269,9 +269,9 @@
     <div class="demo">
       <div class="demo__media">
         <div class="player" id="player">
-          <video id="demo-video" controls playsinline preload="none" poster="demo-cover.jpg?v=20261012c" width="1600" height="900" aria-describedby="demo-desc">
-            <source src="mizan-demo.mp4?v=20261012c" type="video/mp4" id="last-src">
-            <track kind="captions" src="captions-demo-en.vtt?v=20261012c" srclang="en" label="English">
+          <video id="demo-video" controls playsinline preload="none" poster="demo-cover.jpg?v=20261012d" width="1600" height="900" aria-describedby="demo-desc">
+            <source src="mizan-demo.mp4?v=20261012d" type="video/mp4" id="last-src">
+            <track kind="captions" src="captions-demo-en.vtt?v=20261012d" srclang="en" label="English">
           </video>
           <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="mizan-demo.mp4" download>Download the MP4</a> instead.</p>
         </div>
@@ -357,10 +357,10 @@
     <div class="paper">
       <div class="paper__text prose">
         <p class="lede">We test the three levers an adaptive inference system has on a satellite: which model to run, how often to run it, and how much detail to process.</p>
-        <p>The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, and correcting it online cuts missed deadlines by 49&nbsp;% on the board. In a pre-registered held-out evaluation the system caused no breach in 100 simulated runs, but lost quality under heat; a rule written afterwards that steps down instead reaches 94.3&nbsp;% on fresh seeds, above every fixed option.</p>
+        <p>The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, and correcting it online cuts missed deadlines by 49&nbsp;% on the board. Live on the board, the full system held its latency bound. In a pre-registered held-out evaluation over laptop costs it caused no breach in 100 simulated runs, though at the board’s costs only with a battery reserve added afterwards, and it lost quality under heat; a step-down rule written afterwards beats every single fixed option in simulation (94.3&nbsp;% against 92.3&nbsp;%).</p>
         <div class="paper__actions">
-          <a class="btn btn--ink" href="mizan-paper.pdf?v=20261011d" target="_blank" rel="noopener">Read the paper (PDF)</a>
-          <a class="btn btn--line" href="mizan-paper.pdf?v=20261011d" download>Download · 0.2 MB</a>
+          <a class="btn btn--ink" href="mizan-paper.pdf?v=20261014" target="_blank" rel="noopener">Read the paper (PDF)</a>
+          <a class="btn btn--line" href="mizan-paper.pdf?v=20261014" download>Download · 0.2 MB, 9 pages</a>
         </div>
 
         <div class="cite">
@@ -377,13 +377,13 @@
       </div>
 
       <div class="pages" aria-label="Paper preview">
-        <a class="pages__main" href="mizan-paper.pdf?v=20261011d#page=1" target="_blank" rel="noopener">
-          <img src="page-01.jpg?v=20261011d" alt="Page 1 of the paper: title, authors and abstract" width="850" height="1100" loading="lazy" decoding="async">
+        <a class="pages__main" href="mizan-paper.pdf?v=20261014#page=1" target="_blank" rel="noopener">
+          <img src="page-01.jpg?v=20261014" alt="Page 1 of the paper: title, authors and abstract" width="850" height="1100" loading="lazy" decoding="async">
           <span class="pages__lab mono">p. 1 · Abstract</span>
         </a>
-        <a href="mizan-paper.pdf?v=20261011d#page=2" target="_blank" rel="noopener"><img src="page-02.jpg?v=20261011d" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
-        <a href="mizan-paper.pdf?v=20261011d#page=5" target="_blank" rel="noopener"><img src="page-05.jpg?v=20261011d" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
-        <a href="mizan-paper.pdf?v=20261011d#page=7" target="_blank" rel="noopener"><img src="page-07.jpg?v=20261011d" alt="Page 7: held-out evaluation (Table V) and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 7 · Held out</span></a>
+        <a href="mizan-paper.pdf?v=20261014#page=2" target="_blank" rel="noopener"><img src="page-02.jpg?v=20261014" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
+        <a href="mizan-paper.pdf?v=20261014#page=5" target="_blank" rel="noopener"><img src="page-05.jpg?v=20261014" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
+        <a href="mizan-paper.pdf?v=20261014#page=8" target="_blank" rel="noopener"><img src="page-08.jpg?v=20261014" alt="Page 8: held-out evaluation (Table IV) and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 8 · Held out</span></a>
       </div>
     </div>
 
