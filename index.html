@@ -264,44 +264,48 @@
   <div class="sec__in">
     <header class="sec__head">
       <p class="sec__num mono">03 · Demo</p>
-      <h2 id="demo-t" class="sec__title">Every frame has a deadline. Watch MIZAN keep it.</h2>
+      <h2 id="demo-t" class="sec__title">From the mission twin to the measured board.</h2>
     </header>
     <div class="demo">
       <div class="demo__media">
         <div class="player" id="player">
-          <video id="demo-video" controls playsinline preload="none" poster="demo-cover.jpg?v=20261012d" width="1600" height="900" aria-describedby="demo-desc">
-            <source src="mizan-demo.mp4?v=20261012d" type="video/mp4" id="last-src">
-            <track kind="captions" src="captions-demo-en.vtt?v=20261012d" srclang="en" label="English">
+          <video id="demo-video" controls playsinline preload="none" poster="demo-cover.jpg?v=20261014-8f6c4974" width="1920" height="1080" aria-describedby="demo-desc">
+            <source src="mizan-demo.mp4?v=20261014-8f6c4974" type="video/mp4" id="last-src">
+            <track kind="chapters" src="chapters-demo-en.vtt?v=20261014-8f6c4974" srclang="en" label="Chapters">
           </video>
-          <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="mizan-demo.mp4" download>Download the MP4</a> instead.</p>
+          <p class="player__err" id="player-err" hidden>This browser could not play the video. <a href="mizan-demo.mp4?v=20261014-8f6c4974" download>Download the MP4</a> instead.</p>
         </div>
         <div class="chapters" role="group" aria-label="Jump to a moment in the video">
-          <button type="button" data-t="0"><span class="mono">0:00</span>Hook</button>
-          <button type="button" data-t="6"><span class="mono">0:06</span>The satellite</button>
-          <button type="button" data-t="17"><span class="mono">0:17</span>The cost sheet</button>
-          <button type="button" data-t="31"><span class="mono">0:31</span>The idea</button>
-          <button type="button" data-t="47.6"><span class="mono">0:47</span>Time</button>
-          <button type="button" data-t="62.5"><span class="mono">1:02</span>Heat</button>
-          <button type="button" data-t="67.3"><span class="mono">1:07</span>Energy</button>
-          <button type="button" data-t="74"><span class="mono">1:14</span>Memory</button>
-          <button type="button" data-t="84"><span class="mono">1:24</span>The twist</button>
-          <button type="button" data-t="94.6"><span class="mono">1:34</span>Proof</button>
-          <button type="button" data-t="107"><span class="mono">1:47</span>MIZAN</button>
+          <button type="button" data-t="0"><span class="mono">0:00</span>The satellite</button>
+          <button type="button" data-t="20"><span class="mono">0:20</span>The cost sheet</button>
+          <button type="button" data-t="33"><span class="mono">0:33</span>Related work</button>
+          <button type="button" data-t="46"><span class="mono">0:46</span>The method</button>
+          <button type="button" data-t="76"><span class="mono">1:16</span>Mission twin</button>
+          <button type="button" data-t="123"><span class="mono">2:03</span>Energy regimes</button>
+          <button type="button" data-t="140"><span class="mono">2:20</span>Board measurements</button>
+          <button type="button" data-t="163"><span class="mono">2:43</span>Live inference</button>
+          <button type="button" data-t="184"><span class="mono">3:04</span>Recovery</button>
+          <button type="button" data-t="198"><span class="mono">3:18</span>Held-out results</button>
+          <button type="button" data-t="214"><span class="mono">3:34</span>Conclusion</button>
         </div>
-        <p class="demo__dl"><a href="mizan-demo.mp4" download>Download MP4</a></p>
+        <p class="demo__dl"><a href="mizan-demo.mp4?v=20261014-8f6c4974" download>Download MP4</a></p>
       </div>
       <div class="demo__text" id="demo-desc">
-        <p>A two-minute narrated demo. A simulated 3U CubeSat has 40 ms per frame. Over Tunis the downlink slows inference 2.4×, then come heat, an eclipse and a co-tenant task that takes the RAM. The repository's own controller decides every frame, with and without cost feedback. Orbit sequences are simulations; board numbers are measured on a Raspberry Pi 4B.</p>
+        <p>The final 3:49 demo follows MIZAN from its early-exit model and control loop to the mission twin,
+        Raspberry Pi measurements, live inference and recovery demonstration. It closes with the
+        pre-registered evaluation and its thermal limitation.</p>
         <table class="mini">
-          <caption>This run's log <span class="ev ev--sim">Simulated</span></caption>
-          <thead><tr><th scope="col">Controller</th><th scope="col">Missed</th><th scope="col">Mean latency</th><th scope="col">Exp. accuracy</th></tr></thead>
+          <caption>What the video shows</caption>
+          <thead><tr><th scope="col">Sequence</th><th scope="col">Evidence</th></tr></thead>
           <tbody>
-            <tr class="is-mizan"><th scope="row">MIZAN</th><td>12</td><td>20.2 ms</td><td>90.1&nbsp;%</td></tr>
-            <tr><th scope="row">Menu-trusting</th><td>64</td><td>22.0 ms</td><td>90.7&nbsp;%</td></tr>
-            <tr><th scope="row">Static, richest</th><td>88</td><td>20.9 ms</td><td>90.7&nbsp;%</td></tr>
-            <tr><th scope="row">Static, cheapest</th><td>0</td><td>12.9 ms</td><td>86.4&nbsp;%</td></tr>
+            <tr><th scope="row">Orbit and resource events</th><td>Simulated mission twin</td></tr>
+            <tr><th scope="row">Latency and energy traces</th><td>Measured on hardware; board energy is a ratio</td></tr>
+            <tr><th scope="row">Live inference and recovery</th><td>Board measurements; battery and heat scripted in the demo</td></tr>
+            <tr><th scope="row">Held-out M4 / step-down E1</th><td>Simulated over host costs; E1 exploratory</td></tr>
           </tbody>
         </table>
+        <p>Evidence labels distinguish measurements from simulation. The Pi illustration is a render;
+        board plots and oscilloscope traces come from recorded measurements.</p>
       </div>
     </div>
   </div>
@@ -357,10 +361,18 @@
     <div class="paper">
       <div class="paper__text prose">
         <p class="lede">We test the three levers an adaptive inference system has on a satellite: which model to run, how often to run it, and how much detail to process.</p>
-        <p>The model lever saves 52–57&nbsp;% of energy per inference only on saturated accelerators. A laptop-profiled menu is 6.5× optimistic on the Raspberry Pi 4B, and correcting it online cuts missed deadlines by 49&nbsp;% on the board. Live on the board, the full system held its latency bound. In a pre-registered held-out evaluation over laptop costs it caused no breach in 100 simulated runs, though at the board’s costs only with a battery reserve added afterwards, and it lost quality under heat; a step-down rule written afterwards beats every single fixed option in simulation (94.3&nbsp;% against 92.3&nbsp;%).</p>
+        <p>Early exit saves 52–57&nbsp;% of energy per inference on saturated accelerators;
+        at ten frames per second the saving is not measurable. A laptop-profiled menu is 6.5× optimistic
+        on the Raspberry Pi 4B. Online correction cuts missed deadlines by 49&nbsp;% on synthetic frames.</p>
+        <p>Live on the board, the full system meets its 5&nbsp;% latency-bound exceedance target.
+        Its accuracy gain is not yet statistically significant, and the cheapest fixed option misses fewer deadlines.
+        The pre-registered evaluation causes no decision-caused breach in 100 simulations over host costs.
+        At board costs, an exploratory energy reserve is needed. Thermal recovery loses quality;
+        a post-hoc step-down rule scores 94.3&nbsp;% against 92.3&nbsp;% for the best single fixed option
+        on fresh simulated seeds.</p>
         <div class="paper__actions">
-          <a class="btn btn--ink" href="mizan-paper.pdf?v=20261014" target="_blank" rel="noopener">Read the paper (PDF)</a>
-          <a class="btn btn--line" href="mizan-paper.pdf?v=20261014" download>Download · 0.2 MB, 9 pages</a>
+          <a class="btn btn--ink" href="mizan-paper.pdf?v=20261014-8227bfbd" target="_blank" rel="noopener">Read the paper (PDF)</a>
+          <a class="btn btn--line" href="mizan-paper.pdf?v=20261014-8227bfbd" download>Download · 9 pages, 0.2 MB</a>
         </div>
 
         <div class="cite">
@@ -368,7 +380,7 @@
 <pre id="cite-bib" tabindex="0">@misc{mizan,
   title  = {{MIZAN}: Measure-First Adaptive Inference for
             Energy-Constrained Satellite Payloads},
-  authors = {Ahmed Hedhili, Salem Essid,  Ahmed Mnasri},
+  author = {Hedhili, Ahmed and Essid, Salem and Mnasri, Ahmed},
   note   = {IASTAM 6.0 Technical Challenge, Track 1, Problem 2.
             Team INTERSTELLAR, SUP'COM, University of Carthage},
   year   = {2026}
@@ -377,13 +389,13 @@
       </div>
 
       <div class="pages" aria-label="Paper preview">
-        <a class="pages__main" href="mizan-paper.pdf?v=20261014#page=1" target="_blank" rel="noopener">
-          <img src="page-01.jpg?v=20261014" alt="Page 1 of the paper: title, authors and abstract" width="850" height="1100" loading="lazy" decoding="async">
+        <a class="pages__main" href="mizan-paper.pdf?v=20261014-8227bfbd#page=1" target="_blank" rel="noopener">
+          <img src="page-01.jpg?v=20261014-8227bfbd" alt="Page 1 of the paper: title, authors and abstract" width="850" height="1100" loading="lazy" decoding="async">
           <span class="pages__lab mono">p. 1 · Abstract</span>
         </a>
-        <a href="mizan-paper.pdf?v=20261014#page=2" target="_blank" rel="noopener"><img src="page-02.jpg?v=20261014" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
-        <a href="mizan-paper.pdf?v=20261014#page=5" target="_blank" rel="noopener"><img src="page-05.jpg?v=20261014" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
-        <a href="mizan-paper.pdf?v=20261014#page=8" target="_blank" rel="noopener"><img src="page-08.jpg?v=20261014" alt="Page 8: held-out evaluation (Table IV) and conclusion" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 8 · Held out</span></a>
+        <a href="mizan-paper.pdf?v=20261014-8227bfbd#page=2" target="_blank" rel="noopener"><img src="page-02.jpg?v=20261014-8227bfbd" alt="Page 2: methodology" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 2 · Method</span></a>
+        <a href="mizan-paper.pdf?v=20261014-8227bfbd#page=5" target="_blank" rel="noopener"><img src="page-05.jpg?v=20261014-8227bfbd" alt="Page 5: summary of findings and GPU energy tables" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 5 · Findings</span></a>
+        <a href="mizan-paper.pdf?v=20261014-8227bfbd#page=8" target="_blank" rel="noopener"><img src="page-08.jpg?v=20261014-8227bfbd" alt="Page 8: held-out evaluation (Table IV) and exploratory follow-ups" width="850" height="1100" loading="lazy" decoding="async"><span class="pages__lab mono">p. 8 · Held out</span></a>
       </div>
     </div>
 
@@ -391,7 +403,7 @@
       <h3 id="mat-t" class="mono materials__t">Supporting materials</h3>
       <ul>
         <li><a href="mizan-poster.pdf?v=20261011d" target="_blank" rel="noopener">Poster</a><span>A2 PDF, 1.4 MB</span></li>
-        <li><a href="mizan-demo.mp4" download>Demo video</a><span>MP4, 2:00, 9.5 MB</span></li>
+        <li><a href="mizan-demo.mp4?v=20261014-8f6c4974" download>Demo video</a><span>MP4, 3:49, 63.7 MB</span></li>
         <li><span class="materials__na">Code and claim checker</span><span>Coming with the final submission</span></li>
       </ul>
     </div>
