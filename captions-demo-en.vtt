@@ -1,79 +1,163 @@
 WEBVTT
 
-00:06.600 --> 00:12.005
-Every five seconds, this satellite takes a picture, and has forty milliseconds to understand it.
+00:01.500 --> 00:05.500
+Every frame has a deadline.
 
-00:12.400 --> 00:16.563
-Its power, its memory and its time are all limited, and all changing.
+00:06.720 --> 00:09.560
+Every five seconds, this satellite takes a picture.
 
-00:17.600 --> 00:22.866
-Adaptive AI usually picks from a cost sheet, written on a developer's laptop.
+00:09.560 --> 00:12.720
+It has forty milliseconds to understand it.
 
-00:23.800 --> 00:27.893
-On the flight board, that sheet was six and a half times too optimistic.
+00:12.720 --> 00:15.560
+Power, memory, heat, time.
 
-00:31.600 --> 00:33.402
-MIZAN weighs every frame.
+00:15.560 --> 00:18.360
+All limited, all changing.
 
-00:33.402 --> 00:35.277
-How deep the network runs.
+00:18.360 --> 00:21.680
+Most adaptive AI picks its model from a cost sheet,
 
-00:35.277 --> 00:36.863
-Whether to run at all.
+00:21.680 --> 00:23.880
+profiled on a developer's laptop.
 
-00:36.863 --> 00:38.232
-At what resolution.
+00:23.880 --> 00:28.860
+On a Raspberry Pi, the board a research CubeSat is flying, that sheet was wrong:
 
-00:38.800 --> 00:42.154
-A safety filter can refuse a choice, but never make one.
+00:28.860 --> 00:31.860
+six and a half times wrong.
 
-00:42.154 --> 00:47.126
-And every frame, MIZAN measures what the board really took, and corrects the sheet.
+00:31.860 --> 00:37.340
+Existing systems adapt to one or two signals: a deadline, the input, or the battery.
 
-00:48.300 --> 00:51.418
-Over Tunis, the radio steals the processor.
+00:37.340 --> 00:42.000
+MIZAN adapts to all four, and corrects its cost sheet on the board that runs it.
 
-00:54.800 --> 00:58.435
-The twin that trusts its sheet misses sixty-four deadlines.
+00:42.000 --> 00:44.500
+MIZAN, Arabic for balance.
 
-00:58.435 --> 01:02.255
-MIZAN learns the board is busy, steps down, and misses twelve.
+00:44.500 --> 00:50.000
+Every frame, it weighs three levers: how deep to think,
 
-01:03.100 --> 01:06.752
-When the radio heats the payload, it pauses, and cools.
+00:50.000 --> 00:53.000
+whether to look at all, and how much detail.
 
-01:07.900 --> 01:13.375
-In eclipse, with one wing stuck, it narrows its menu, then rests, and recovers on its own.
+00:53.000 --> 00:56.000
+The network is a small MobileNet with early exits.
 
-01:14.500 --> 01:16.751
-Then another task takes the memory.
+00:56.000 --> 00:59.000
+When it is confident, it stops early.
 
-01:16.751 --> 01:20.804
-The cheapest fixed model no longer fits, and loses every frame.
+00:59.000 --> 01:01.000
+When it is not, it goes deeper.
 
-01:20.804 --> 01:22.477
-MIZAN's choice still fits.
+01:01.000 --> 01:04.000
+Each frame, the controller prices quality against energy.
 
-01:22.477 --> 01:23.570
-It keeps imaging.
+01:04.000 --> 01:08.400
+A safety filter can veto its choice, but never makes one.
 
-01:24.900 --> 01:25.942
-And the surprise:
+01:08.400 --> 01:13.240
+Then the board measures what the frame really cost, and corrects the menu.
 
-01:25.942 --> 01:29.620
-the AI used less than one percent of the satellite's energy.
+01:13.240 --> 01:18.500
+We tested it in a mission twin: a simulated orbit, 500 kilometres up,
 
-01:29.620 --> 01:33.911
-The lever is when to power the payload, not how deep the network runs.
+01:18.500 --> 01:22.560
+and over 1,500 decisions, three things go wrong.
 
-01:35.300 --> 01:39.374
-On the real board, correcting the sheet cut missed deadlines by half.
+01:22.560 --> 01:27.000
+For nine minutes, the satellite is in view of a ground station.
 
-01:39.374 --> 01:46.459
-On scenarios it had never seen, it held ninety-nine and a half percent of the optimum, with no breach in a hundred runs.
+01:28.000 --> 01:31.000
+The downlink takes the processor, and nobody tells the AI.
 
-01:50.000 --> 01:50.371
-MIZAN.
+01:31.000 --> 01:34.000
+The sheet says six milliseconds.
 
-01:50.371 --> 01:53.775
-It measures the board it flies on, and keeps measuring.
+01:34.000 --> 01:37.500
+MIZAN expects thirty-nine, and steps down.
+
+01:37.500 --> 01:41.000
+Trust the sheet, and you miss sixty-four deadlines.
+
+01:41.000 --> 01:46.000
+MIZAN misses only twelve.
+
+01:46.000 --> 01:49.500
+Then the payload overheats. MIZAN pauses until it cools,
+
+01:49.500 --> 01:54.560
+safe, but it skips images a lighter model could have taken.
+
+01:54.560 --> 01:58.000
+Eclipse, with one solar wing stuck.
+
+01:58.000 --> 02:02.000
+It narrows its choices, rests, and recovers on its own.
+
+02:02.000 --> 02:05.000
+And here is the surprise.
+
+02:05.000 --> 02:10.000
+On a data-centre chip running flat out, early exit saves about half the energy.
+
+02:10.000 --> 02:14.000
+At a payload's pace, nothing measurable.
+
+02:14.000 --> 02:18.000
+Adapting the model buys deadline safety, not energy.
+
+02:18.000 --> 02:21.000
+The energy lever is the power switch.
+
+02:21.000 --> 02:24.000
+On the real Raspberry Pi,
+
+02:24.000 --> 02:27.000
+cost feedback cut missed deadlines nearly in half.
+
+02:27.000 --> 02:33.000
+Early exit ran more than twice as fast as full depth, for under one point of accuracy,
+
+02:33.000 --> 02:39.000
+and the oscilloscope shows that full depth cost about three times the energy of an early exit.
+
+02:39.000 --> 02:45.220
+Then we ran the whole system live on the board: 1,440 frames.
+
+02:45.220 --> 02:50.620
+Its latency forecast held, wrong on no more than 5% of frames, as designed.
+
+02:50.620 --> 02:55.300
+It was more accurate than the cheapest option, though not yet significantly,
+
+02:55.300 --> 03:01.700
+but it missed ten deadlines where the cheapest missed none: a cold start, before it had measured enough.
+
+03:01.700 --> 03:07.000
+The fix, still to test: start from the board's own samples.
+
+03:07.000 --> 03:09.000
+We even killed it mid-mission.
+
+03:09.000 --> 03:14.000
+Ten seconds later, it was back, and nothing recorded was lost.
+
+03:14.000 --> 03:19.000
+Held out and pre-registered, we ran it once. It caused no breach in a hundred runs.
+
+03:19.000 --> 03:24.000
+Where deadlines or memory move, it beats every fixed option.
+
+03:24.000 --> 03:27.560
+Under heat, it paused when it could have stepped down.
+
+03:27.560 --> 03:34.000
+A step-down rule, written afterwards, beats every single fixed option in simulation.
+
+03:34.000 --> 03:39.400
+Onboard, adaptive inference must measure its platform, and keep measuring it.
+
+03:39.400 --> 03:43.600
+MIZAN. Measure the board, then decide.
